@@ -13,10 +13,13 @@ class User(db.Model, UserMixin):
     # username = db.Column(db.String(40), nullable=False, unique=True)
     firstname = db.Column(db.String(100), nullable=False)
     lastname = db.Column(db.String(100), nullable=False)
-    image_url = db.Column(db.String(255))
+    image_url = db.Column(db.String)
     zipcode = db.Column(db.Integer(5), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+
+    businesses = db.relationship("Business", back_populates="user", cascade="all, delete-orphan")
+    reviews = db.relationship("Review", back_populates="user", cascade="all, delete-orphan")
 
     @property
     def password(self):
@@ -36,5 +39,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'firstname': self.firstname,
             'lastname': self.lastname,
-            'zipcode': self.zipcode
+            'zipcode': self.zipcode,
+            'businesses': [business.to_dict() for business in self.businesses],
+            'reviews': [review.to_dict() for review in self.reviews]
         }

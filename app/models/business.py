@@ -25,8 +25,8 @@ class Business(db.Model, UserMixin):
 
     # relationship attributes
     user = db.relationship("User", back_populates="businesses")
-    reviews = db.relationship("Review", back_populates="businesses")
-    
+    reviews = db.relationship("Review", back_populates="businesses", cascade="all, delete-orphan")
+
     def to_dict(self):
         return {
             'id': self.id,
