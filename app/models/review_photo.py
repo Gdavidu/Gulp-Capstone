@@ -14,3 +14,9 @@ class ReviewPhotos(db.Model, UserMixin):
     photo_url = db.Column(db.String, nullable=False)
 
     reviews = db.relationship("Review", back_populates="reviewPhotos")
+
+    def to_dict(self):
+        return {
+            'id':self.id,
+            'photo_url':self.photo_url
+        }

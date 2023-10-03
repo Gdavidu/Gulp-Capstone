@@ -28,7 +28,6 @@ class User(db.Model, UserMixin):
     @password.setter
     def password(self, password):
         self.hashed_password = generate_password_hash(password)
-
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
@@ -41,5 +40,16 @@ class User(db.Model, UserMixin):
             'lastname': self.lastname,
             'zipcode': self.zipcode,
             'businesses': [business.to_dict() for business in self.businesses],
+            'reviews': [review.to_dict() for review in self.reviews]
+        }
+
+    def to_dict_no_business(self):
+        return{
+            'id': self.id,
+            # 'username': self.username,
+            'email': self.email,
+            'firstname': self.firstname,
+            'lastname': self.lastname,
+            'zipcode': self.zipcode,
             'reviews': [review.to_dict() for review in self.reviews]
         }
