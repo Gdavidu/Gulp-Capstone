@@ -1,8 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from flask_login import UserMixin
 
-
-class ReviewPhotos(db.Model, UserMixin):
+class ReviewPhoto(db.Model, UserMixin):
     __tablename__= 'reviewPhotos'
 
     if environment == "production":
@@ -13,7 +12,7 @@ class ReviewPhotos(db.Model, UserMixin):
     review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=False)
     photo_url = db.Column(db.String, nullable=False)
 
-    reviews = db.relationship("Review", back_populates="reviewPhotos")
+    reviews = db.relationship("Review", back_populates="photos")
 
     def to_dict(self):
         return {
