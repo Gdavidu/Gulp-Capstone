@@ -8,10 +8,10 @@ class ReviewPhoto(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
+    # business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=False)
     photo_url = db.Column(db.String, nullable=False)
-
+    
     reviews = db.relationship("Review", back_populates="photos")
 
     def to_dict(self):

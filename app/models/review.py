@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from flask_login import UserMixin
+from datetime import datetime
 
 class Review(db.Model, UserMixin):
     __tablename__ = 'reviews'
@@ -12,12 +13,12 @@ class Review(db.Model, UserMixin):
     business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     review = db.Column(db.String(250), nullable=False)
-    created_at = db.Column(db.Time, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 
     user = db.relationship("User", back_populates="reviews")
     businesses = db.relationship("Business", back_populates="reviews")
-    photos = db.relationship("Review", back_populates="reviews", cascade="all, delete-orphan")
+    photos = db.relationship("ReviewPhoto", back_populates="reviews", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
