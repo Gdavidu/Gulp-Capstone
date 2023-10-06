@@ -15,7 +15,7 @@ def seed_businesses():
         description='At Main Chick Hot Chicken, our passion for inspired food has led us to create a truly unique Nashville-style fried chicken experience. Our specialty is serving up hot chicken with a range of spice levels.',
         price_rating=2)
     three = Business(
-        name="Porto's Bakery", owner_id=3, phone_num=0987654321, street_add='3614 Magnolia Blvd',
+        name="Porto's Bakery", owner_id=3, phone_num=9087654321, street_add='3614 Magnolia Blvd',
         city='Burbank', state='California', zip=91505, website_url='https://www.portosbakery.com/',
         photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/Porto.jpg',
         description="Porto's Bakery was born out of Rosa's love for sharing her wonderful cakes, pastries, and savory treats. Millions sold each year. Now shipping nationwide!",
