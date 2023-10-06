@@ -9,7 +9,7 @@ class Business(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     name = db.Column(db.String(100), nullable=False)
-    phone_num = db.Column(db.Integer, nullable=False)
+    phone_num = db.Column(db.String, nullable=False)
     street_add = db.Column(db.String(50), nullable=False)
     city = db.Column(db.String(25), nullable=False)
     state = db.Column(db.String(15), nullable=False)
