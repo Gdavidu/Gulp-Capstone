@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../store/session";
+import { login, logout } from "../../store/session";
+import { useModal } from "../../context/Modal";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
+import { useHistory } from 'react-router-dom';
 import SignupFormModal from "../SignupFormModal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const { closeModal } = useModal();
   const [showMenu, setShowMenu] = useState(false);
+  const history = useHistory();
   const ulRef = useRef();
 
   const openMenu = () => {
@@ -37,6 +41,12 @@ function ProfileButton({ user }) {
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
+  const loginDemo = (e) => {
+    e.preventDefault();
+
+    dispatch(login('demo@aa.io', 'password')).then(closeModal()).then(history.push('/'))
+  }
+
   return (
     <>
       <button onClick={openMenu}>
@@ -64,6 +74,7 @@ function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<SignupFormModal />}
             />
+            <button id="demo-login" className='modal-btn' onClick={loginDemo} >Demo User</button>
           </>
         )}
       </ul>
