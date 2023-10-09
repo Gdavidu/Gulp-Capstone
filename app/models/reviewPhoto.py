@@ -11,11 +11,11 @@ class ReviewPhoto(db.Model, UserMixin):
     # business_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("businesses.id")), nullable=False)
     review_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("reviews.id")), nullable=False)
     photo_url = db.Column(db.String, nullable=False)
-    
+
     reviews = db.relationship("Review", back_populates="photos")
 
     def to_dict(self):
         return {
-            'id':self.id,
-            'photo_url':self.photo_url
+            'id': self.id,
+            'photo_url': self.photo_url
         }

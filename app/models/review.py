@@ -22,10 +22,11 @@ class Review(db.Model, UserMixin):
 
     def to_dict(self):
         return {
-            "id": self.id,
+            'id': self.id,
             'rating': self.rating,
             'review': self.review,
             'created_at': self.created_at,
             'user': self.user.to_dict_no_business(),
-            'photos': self.photos.to_dict()
+            'business': self.businesses.to_dict(),
+            'photos': [photo.to_dict() for photo in self.photos]
         }

@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, URLField
 from wtforms.validators import DataRequired
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-from ..api.AWS_helpers import AUDIO_ALLOWED_EXTENSIONS, IMAGE_ALLOWED_EXTENSIONS
+# from ..api. import ALLOWED_EXTENSIONS
 
 """
 need to add enctype="multipart/form-data" to any form tag

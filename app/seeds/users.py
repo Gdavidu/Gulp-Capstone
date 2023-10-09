@@ -4,11 +4,11 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        firstname='demo', lastname='man', email='demo@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/bernana.png', zipcode=95132)
+        username='demo', firstname='demo', lastname='man', email='demo@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/bernana.png', zipcode=95132)
     marnie = User(
-        firstname='Marnie', lastname='Book', email='marnie@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/marnie.jpg', zipcode=92122)
+        username='Marnie', firstname='Marnie', lastname='Book', email='marnie@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/marnie.jpg', zipcode=92122)
     dray = User(
-        firstname='Draymond', lastname='Green', email='dray@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=94402)
+        username='Dray', firstname='Draymond', lastname='Green', email='dray@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=94402)
 
     db.session.add(demo)
     db.session.add(marnie)

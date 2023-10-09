@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    # username = db.Column(db.String(40), nullable=False, unique=True)
+    username = db.Column(db.String(40), nullable=False, unique=True)
     firstname = db.Column(db.String(100), nullable=False)
     lastname = db.Column(db.String(100), nullable=False)
     image_url = db.Column(db.String)
@@ -34,7 +34,7 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            # 'username': self.username,
+            'username': self.username,
             'email': self.email,
             'firstname': self.firstname,
             'lastname': self.lastname,
@@ -51,5 +51,5 @@ class User(db.Model, UserMixin):
             'firstname': self.firstname,
             'lastname': self.lastname,
             'zipcode': self.zipcode,
-            'reviews': [review.to_dict() for review in self.reviews]
+            
         }
