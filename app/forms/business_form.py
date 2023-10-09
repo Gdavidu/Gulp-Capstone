@@ -14,5 +14,5 @@ class BusinessForm(FlaskForm):
     # image = URLField('Image URL', validators=[DataRequired()])
     image = FileField('Image URL', validators=[FileRequired(), FileAllowed(list(IMAGE_ALLOWED_EXTENSIONS))])
     # audio = URLField('Audio URL', validators=[DataRequired()])
-    audio = FileField('Audio URL', validators=[FileRequired(), FileAllowed(list(AUDIO_ALLOWED_EXTENSIONS))])
+    zipcode = FileField('Audio URL', validators=[FileRequired(), FileAllowed(list(AUDIO_ALLOWED_EXTENSIONS))])
     submit = SubmitField('Create New Business')
