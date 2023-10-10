@@ -9,7 +9,7 @@ need to add enctype="multipart/form-data" to any form tag
 on the template for this form for AWS to work
 """
 
-class BusinessForm(FlaskForm):
+class BusinessEditForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     phone_num = StringField('Phone Number', validators=[DataRequired()])
     street_add = StringField('Street Address', validators=[DataRequired()])
@@ -20,4 +20,4 @@ class BusinessForm(FlaskForm):
     photo_url = FileField('Image URL', validators=[FileRequired(), FileAllowed(list(ALLOWED_EXTENSIONS))])
     description = StringField('Description', validators=[DataRequired()])
     price_rating = IntegerField('Price Rating', validators=[FileRequired()])
-    submit = SubmitField('Create New Business')
+    submit = SubmitField('Edit Business')

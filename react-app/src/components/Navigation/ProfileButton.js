@@ -13,6 +13,7 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();
   const ulRef = useRef();
+ 
 
   const openMenu = () => {
     if (showMenu) return;
@@ -38,6 +39,10 @@ function ProfileButton({ user }) {
     dispatch(logout());
   };
 
+  const handleMyBusiness = (e) => {
+    e.preventDefault();
+    history.push('/mybusinesses')
+  }
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
   const closeMenu = () => setShowMenu(false);
 
@@ -55,8 +60,11 @@ function ProfileButton({ user }) {
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
+            <li>Hello {user.firstname}!</li>
             <li>{user.email}</li>
+            <li>
+            <button onClick={handleMyBusiness}>{user.firstname}'s Businesses</button>
+            </li>
             <li>
               <button onClick={handleLogout}>Log Out</button>
             </li>
