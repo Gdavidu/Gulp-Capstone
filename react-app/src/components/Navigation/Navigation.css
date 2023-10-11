@@ -5,3 +5,49 @@
 .hidden {
   display: none;
 }
+
+.nav-bar{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 1520px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  z-index: 800;
+  right: 20px;
+  border: 1px solid gainsboro;
+  margin-top: 5px;
+}
+
+#noDeco{
+  text-decoration: none;
+}
+
+#logo {
+  font-size: 2.5rem;
+  text-decoration: none;
+  color: rgb(230, 71, 71);
+  font-family: sans-serif;
+  margin-left: .5em;
+  font-weight: 750;
+}
+
+.fa-yelp{
+  color: rgb(230, 71, 71);
+  
+}
+.left-nav{
+  display: flex;
+  gap: 10px;
+  margin-right: 5em;
+}

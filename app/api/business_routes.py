@@ -13,6 +13,11 @@ def all_songs():
     response = [business.to_dict() for business in get_businesses]
     return response
 
+@businesses.route('/<int:id>')
+def get_one_busin():
+    one_busin = Business.query.get(id)
+    return one_busin.to_dict()
+
 @businesses.route('/new', methods=["POST"])
 @login_required
 def post_busin():

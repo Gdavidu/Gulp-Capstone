@@ -13,10 +13,12 @@ function Navigation({ isLoaded }){
 		history.push('/businesses/new')
 	  }
 	return (
-		<ul>
-			<li>
-				<NavLink exact to="/">Home</NavLink>
+		<ul className='nav-bar'>
+			<div className='nav-container'>
+			<li className="logo-li">
+				<NavLink id='noDeco' exact to="/"><span id="logo">Gulp </span><i className="fa-brands fa-yelp fa-2xl"></i></NavLink>
 			</li>
+			<div className='left-nav'>
 			<li>
 			<button onClick={createBusiness}>Create a Business</button>
 			</li>
@@ -25,6 +27,8 @@ function Navigation({ isLoaded }){
 					<ProfileButton user={sessionUser} />
 				</li>
 			)}
+			</div>
+			</div>
 		</ul>
 	);
 }
