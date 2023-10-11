@@ -10,6 +10,7 @@
   list-style-type: none;
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .nav-container{
@@ -44,7 +45,7 @@
 
 .fa-yelp{
   color: rgb(230, 71, 71);
-  
+
 }
 .left-nav{
   display: flex;

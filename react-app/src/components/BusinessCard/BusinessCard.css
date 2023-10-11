@@ -1,0 +1,25 @@
+.busi-card-pic-link img {
+    object-fit: cover;
+    height: 250px;
+    width: 250px;
+}
+
+.busi-card {
+    /* margin-bottom: 1em;
+    height: 225px;
+    width: 180px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:10px;
+    margin: 15px;
+    border: 1.5px solid rgb(235, 235, 235);
+}
+
+.busi-name{
+    margin:0;
+}
+
+.review-details{
+    margin:0;
+}

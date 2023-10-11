@@ -130,11 +130,11 @@ const businessReducer = (state = initialState, action) => {
             newState.singleSong = action.song;
             return newState
         }
-        case GET_USER_BUSIS: {
-            newState = { ...state, allBusinesses: {}, singleBusiness: {} }
-            action.businesses.forEach(busi => newState.allBusinesses[busi.id] = busi)
-            return newState
-        }
+        // case GET_USER_BUSIS: {
+        //     newState = { ...state, allBusinesses: {}, singleBusiness: {} }
+        //     action.businesses.forEach(busi => newState.allBusinesses[busi.id] = busi)
+        //     return newState
+        // }
         case DELETE_BUSI: {
             newState = { ...state, allBusinesses: { ...state.allBusinesses }, singleBusiness: {} }
             delete newState.allBusinesses[action.businessId]
