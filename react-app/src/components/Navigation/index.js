@@ -19,9 +19,11 @@ function Navigation({ isLoaded }){
 				<NavLink id='noDeco' exact to="/"><span id="logo">Gulp </span><i className="fa-brands fa-yelp fa-2xl"></i></NavLink>
 			</li>
 			<div className='left-nav'>
+				{sessionUser ? (
 			<li>
 			<button onClick={createBusiness}>Create a Business</button>
-			</li>
+			</li>): null
+				}
 			{isLoaded && (
 				<li>
 					<ProfileButton user={sessionUser} />

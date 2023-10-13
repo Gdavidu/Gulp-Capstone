@@ -63,5 +63,5 @@ class Business(db.Model, UserMixin):
             # 'open_time': self.open_time,
             # 'close_time': self.close_time,
             # 'reviews': self.reviews.to_dict(),
-            # 'user': self.user.to_dict_no_business()
+            'owner_id': self.owner_id
         }

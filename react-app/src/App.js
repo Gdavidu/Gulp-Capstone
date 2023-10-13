@@ -4,9 +4,11 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import LandingPage from "./components/LandingPage"
+import CreateBusiness from "./components/CreateBusiness";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-
+import UserBusinesses from "./components/UserBusinesses";
+import OneBusiness from "./components/OneBusiness";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,6 +23,15 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <LandingPage />
+          </Route>
+          <Route exact path='/mybusinesses'>
+            <UserBusinesses />
+          </Route>
+          <Route exact path='/businesses/new'>
+            <CreateBusiness />
+          </Route>
+          <Route exact path='/businesses/:busiId'>
+            <OneBusiness />
           </Route>
           <Route path="/login" >
             <LoginFormPage />

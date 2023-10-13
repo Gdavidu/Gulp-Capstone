@@ -1,7 +1,6 @@
 import "./BusinessCard.css";
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+
 
 export default function BusinessCard({ business }) {
     return (

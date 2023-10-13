@@ -1,0 +1,64 @@
+.busi-upload-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+    width:1000px;
+    justify-content: center;
+}
+
+.upload-div label{
+    margin: 30px 30px;
+
+}
+
+#upload-btn{
+    margin: 20px;
+}
+
+
+.busi-inputs{
+    margin-left: 5px;
+}
+
+.upload-validators{
+    padding: 5px;
+    color: crimson;
+    margin: 0;
+}
+#upload-form-data{
+    width: 800px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid lightgrey;
+    padding: 25px 25px;
+}
+.upload-form-elements{
+    width:400px;
+    padding-left: 170px;
+}
+
+#dollas {
+    background-color: transparent ;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: none;
+  }
+  .on {
+    color: #000;
+  }
+  .off {
+    color: #ccc;
+  }
+.dollar{
+  font-size: large;
+}

@@ -127,7 +127,7 @@ const businessReducer = (state = initialState, action) => {
         case CREATE_BUSI: {
             newState = { ...state, allBusinesses: { ...state.allBusinesses }, singleBusiness: {} }
             newState.allBusinesses[action.business.id] = action.business;
-            newState.singleSong = action.song;
+            newState.singleBusiness = action.business;
             return newState
         }
         // case GET_USER_BUSIS: {

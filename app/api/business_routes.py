@@ -14,7 +14,7 @@ def all_songs():
     return response
 
 @businesses.route('/<int:id>')
-def get_one_busin():
+def get_one_busin(id):
     one_busin = Business.query.get(id)
     return one_busin.to_dict()
 
