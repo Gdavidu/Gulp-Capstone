@@ -4,11 +4,12 @@ import { useHistory } from 'react-router-dom';
 import { createBusiThunk } from '../../store/business';
 import "./CreateBusiness.css"
 
+
 export default function CreateBusiness() {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
-    const user_id = user.id
+
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [phonenum, setPhonenum] = useState('')
@@ -21,6 +22,12 @@ export default function CreateBusiness() {
     const [descr, setDescr] = useState('')
     const [errors, setErrors] = useState({})
     const [uploading, setUploading] = useState(false);
+    if(!user){
+        history.push('/')
+        return null
+    }
+
+    const user_id = user.id
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -71,7 +78,8 @@ export default function CreateBusiness() {
         try {
             setUploading(true)
             const newBusi = await dispatch(createBusiThunk(formData, user))
-            history.push(`/businesses/${newBusi.id}`)
+            console.log('NEWBUSI:>>>>>',newBusi)
+            history.push(`/businesses/${newBusi.newBusiness.id}`)
         } catch (error) {
             console.error('Error posting business:', error)
         }

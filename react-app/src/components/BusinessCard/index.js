@@ -12,7 +12,6 @@ export default function BusinessCard({ business }) {
             <NavLink className="busi-card-details-link" exact to={`/businesses/${business.id}`}>
                 <p className="busi-name">{business.name}</p>
             </NavLink>
-            <p className='review-details'>Review & Rating</p>
         </div>
     )
 }
