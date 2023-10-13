@@ -44,7 +44,7 @@ export const getAllReviewsThunk = () => async dispatch => {
 
     if (res.ok) {
         const reviews = await res.json();
-        dispatch(getAllBusisAction(reviews))
+        dispatch(getAllReviewsAction(reviews))
     }
 };
 
@@ -102,7 +102,7 @@ export const editReviewThunk = (payload) => async dispatch => {
     }
 }
 
-initialState={allReviews:{}, business:{}}
+const initialState={allReviews:{}, business:{}}
 const reviewReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {

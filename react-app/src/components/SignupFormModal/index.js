@@ -52,7 +52,7 @@ function SignupFormModal() {
 		}
 		if (Object.values(errorObj).length ==0) {
 			// console.log('DATA IN HANDLE SUBMIT (MODAL)', firstname,lastname, zipcode, username, email, password)
-			const data = await dispatch(signUp(firstname, lastname, email, username, zipcode, password));
+			const data = await dispatch(signUp( username, firstname, lastname, email, zipcode, password));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -71,8 +71,18 @@ function SignupFormModal() {
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
-					))}
+						))}
 				</ul>
+					<label>
+						Username
+						<input className='signup-input'
+							type="text"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							required
+						/>
+					</label>
+					{errorObject.username && <p className='errors'>{errorObject.username}</p>}
 				<label>
 					First Name
 					<input className='signup-input'
@@ -103,16 +113,6 @@ function SignupFormModal() {
 					/>
 				</label>
 				{errorObject.email && <p className='errors'>{errorObject.email}</p>}
-				<label>
-					Username
-					<input className='signup-input'
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-						required
-					/>
-				</label>
-				{errorObject.username && <p className='errors'>{errorObject.username}</p>}
 				<label>
 					Zipcode
 					<input className='signup-input'

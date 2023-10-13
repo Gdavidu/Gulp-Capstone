@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBusiThunk } from "../../store/business";
+import BusinessReviews from '../BusinessReviews';
 
 export default function OneBusiness() {
     const { busiId } = useParams();
@@ -57,7 +58,9 @@ export default function OneBusiness() {
                     About Us:
                     <div>{busi.description}</div>
             </div>
-            {/* Reviews GO HERE */}
+            <div id='review-wrapper'>
+                    <BusinessReviews business={busi}></BusinessReviews>
+            </div>
         </div>
     )
 }
