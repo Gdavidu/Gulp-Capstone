@@ -59,7 +59,7 @@ export default function OneBusiness() {
                     <div>{busi.description}</div>
             </div>
             <div id='review-wrapper'>
-                    <BusinessReviews business={busi}></BusinessReviews>
+                    {/* <BusinessReviews business={busi}></BusinessReviews> */}
             </div>
         </div>
     )
