@@ -8,6 +8,7 @@ import BusinessCard from '../BusinessCard';
 import OpenModalButton from "../OpenModalButton";
 import { NavLink } from 'react-router-dom';
 import BusinessDelete from '../BusinessDelete';
+import BusinessEdit from '../BusinessEdit';
 export default function UserBusinesses() {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
@@ -55,6 +56,10 @@ export default function UserBusinesses() {
                                 {bus.owner_id ? <OpenModalButton
                                 buttonText= <i className="fa fa-solid fa-trash fa-xs"> Delete</i>
                                 modalComponent={<BusinessDelete busId={bus.id}/>}
+                                ></OpenModalButton>: null}
+                                {bus.owner_id ? <OpenModalButton
+                                buttonText= <i className="fa fa-solid fa-pen-nib fa-xs"> Edit</i>
+                                modalComponent={<BusinessEdit busId={bus.id}/>}
                                 ></OpenModalButton>: null}
                             </div>
                         </>

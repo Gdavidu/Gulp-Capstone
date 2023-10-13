@@ -23,8 +23,10 @@ function LoginFormModal() {
 
   return (
     <>
+    <div className="signup-outer-box">
+		<div className="signup-box">
       <h1>Log In</h1>
-      <form id='modal-z-index' onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -32,7 +34,7 @@ function LoginFormModal() {
         </ul>
         <label>
           Email
-          <input
+          <input className='signup-input'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -41,15 +43,17 @@ function LoginFormModal() {
         </label>
         <label>
           Password
-          <input
+          <input className='signup-input'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Log In</button>
+        <button className='user-button' type="submit">Log In</button>
       </form>
+      </div>
+      </div>
     </>
   );
 }

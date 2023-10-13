@@ -52,3 +52,23 @@
   gap: 10px;
   margin-right: 5em;
 }
+
+/* Profile Dropdown css */
+.menu-div {
+  position: relative;
+}
+
+.menu-div ul {
+  position: absolute;
+  list-style-type: none;
+  top: 35px;
+  right: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 150px;
+  align-items: center;
+  background-color: white;
+  text-align: center;
+}
+

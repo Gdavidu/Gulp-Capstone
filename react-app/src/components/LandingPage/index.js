@@ -15,10 +15,10 @@ export default function LandingPage() {
         dispatch(getBusisThunk())
     }, [dispatch])
 
-    
+
     if (!busis.length) return null
     const busiArr = []
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 9; i++) {
         if(busis[i]) busiArr.push(busis[i])
     }
     // console.log("BUSI ARR", busiArr)
