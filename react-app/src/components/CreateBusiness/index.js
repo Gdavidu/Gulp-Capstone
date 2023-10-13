@@ -72,13 +72,13 @@ export default function CreateBusiness() {
         formData.append("description", descr)
         formData.append("photo_url", image)
 
-        console.log("PRICERATE AND ZIP",typeof pricerate, zip)
+        console.log("PHOTO_URL", image)
 
 
         try {
             setUploading(true)
             const newBusi = await dispatch(createBusiThunk(formData, user))
-            console.log('NEWBUSI:>>>>>',newBusi)
+            console.log('NEWBUSI:>>>>>',newBusi.photo_url)
             history.push(`/businesses/${newBusi.newBusiness.id}`)
         } catch (error) {
             console.error('Error posting business:', error)
