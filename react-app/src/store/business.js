@@ -90,19 +90,21 @@ export const deleteBusiThunk = (businessId) => async dispatch => {
     }
 }
 
-export const editBusiThunk = (business, businessId) => async dispatch => {
+export const editBusiThunk = (payload, busId) => async dispatch => {
     try {
-        const res = await fetch(`/api/businesses/${businessId}`, {
+        // console.log('EDIT BUSI FROM THUNK', business)
+        const res = await fetch(`/api/businesses/${busId}`, {
             method: 'PUT',
             // headers: { 'Content-Type': 'application/json' },
             // body: JSON.stringify(song)
-            body: business
+            body: payload
         })
 
         if (res.ok) {
-            const newBusi = await res.json();
-            dispatch(editBusiAction(newBusi))
-            return newBusi;
+            // console.log("HIT RES.OK")
+            const business = await res.json();
+            dispatch(editBusiAction(business))
+            return business;
         }
     } catch (e) {
         const error = await e.json()
@@ -126,6 +128,7 @@ const businessReducer = (state = initialState, action) => {
         }
         case CREATE_BUSI: {
             newState = { ...state, allBusinesses: { ...state.allBusinesses }, singleBusiness: {} }
+            console.log('ACTION FROM REDUCER', action.business)
             newState.allBusinesses[action.business.id] = action.business;
             newState.singleBusiness = action.business;
             return newState

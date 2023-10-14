@@ -1,19 +1,21 @@
+import './ReviewEdit.css'
+import { useModal } from '../../context/Modal';
 import { useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { useModal } from "../../context/Modal";
-import './ReviewPost.css'
-import { createReviewThunk } from "../../store/review";
+import { useHistory } from 'react-router-dom';
+import { editReviewThunk } from '../../store/review';
 
-export default function ReviewPost({ businessId }) {
-    const dispatch = useDispatch();
-    const { closeModal } = useModal();
+export default function ReviewEdit({ reviewId }) {
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const { closeModal } = useModal()
+    const edit = useSelector(state=>Object.values(state.reviews.business)).filter(review=>review.id===reviewId)[0]
     const user = useSelector(state => state.session.user)
     const user_id = user.id
-    console.log('businessId from REVIEWPOST', businessId)
-    const [review, setReview] = useState('')
-    const [rating, setRating] = useState('')
     const [errors, setErrors] = useState({})
-
+    const [rating, setRating] = useState(edit.rating)
+    const [review, setReview] = useState(edit.review)
+    // console.log(edit)
     const handleSubmit = async (e) => {
         e.preventDefault()
         let validationErrors = {}
@@ -25,18 +27,20 @@ export default function ReviewPost({ businessId }) {
             return
         }
         const payload = {
+            id: reviewId,
             user_id: user_id,
-            business_id: businessId,
+            business_id: edit.business.id,
             rating: rating,
             review: review
         }
+console.log(payload)
 
         try {
             // console.log('FROM REVIEWPOST: ', businessId, payload.user_id)
-            await dispatch(createReviewThunk(businessId, payload))
+            await dispatch(editReviewThunk(payload))
             closeModal()
         } catch (error) {
-            console.error('Error posting review:', error)
+            console.error('Error editing review:', error)
         }
     }
     return (

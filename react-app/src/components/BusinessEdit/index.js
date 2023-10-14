@@ -26,7 +26,7 @@ export default function BusinessEdit({ busId }) {
     const [website, setWebsite] = useState(edit.website_url)
     const [pricerate, setPricerate] = useState(edit.price_rating)
     const [descr, setDescr] = useState(edit.description)
-
+// console.log(image)
     const handleSubmit = async (e) => {
         e.preventDefault()
         let validationErrors = {}
@@ -55,21 +55,28 @@ export default function BusinessEdit({ busId }) {
             setErrors(validationErrors)
             return
         }
-        const formData = new FormData()
-        formData.append("name", name)
-        formData.append("owner_id", user_id)
-        formData.append("phone_num", phonenum)
-        formData.append("street_add", addr)
-        formData.append("city", city)
-        formData.append("state", state)
-        formData.append("zip", zip)
-        formData.append("website_url", website)
-        formData.append("price_rating", pricerate)
-        formData.append("description", descr)
-        if (typeof image !== 'string') formData.append("photo_url",image)
-        try {
+        const business = new FormData()
+        business.append("name", name)
+        business.append("owner_id", user_id)
+        business.append("phone_num", phonenum)
+        business.append("street_add", addr)
+        business.append("city", city)
+        business.append("state", state)
+        business.append("zip", zip)
+        business.append("website_url", website)
+        business.append("price_rating", pricerate)
+        business.append("description", descr)
+        if (typeof image !== 'string') business.append("photo_url",image)
 
-            await dispatch(editBusiThunk(formData, busId))
+
+        for (const key of business.keys()) {
+            console.log(key);
+          }
+        for (const value of business.values()) {
+            console.log(value);
+          }
+        try {
+            await dispatch(editBusiThunk(business, busId))
             closeModal()
             history.push(`/businesses/${busId}`)
         } catch (error) {
@@ -224,7 +231,7 @@ export default function BusinessEdit({ busId }) {
                                 className='edit-bars'
                                 type='file'
                                 // accept='image/*'
-                                accept='.pdf, .png, .jpg, .jpeg, .gif'
+                                accept=' .png, .jpg, .jpeg, .gif'
                                 id='image-btn'
                                 onChange={(e) => setImage(e.target.files[0])}
                             />

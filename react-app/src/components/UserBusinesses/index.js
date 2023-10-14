@@ -9,6 +9,7 @@ import OpenModalButton from "../OpenModalButton";
 import { NavLink } from 'react-router-dom';
 import BusinessDelete from '../BusinessDelete';
 import BusinessEdit from '../BusinessEdit';
+
 export default function UserBusinesses() {
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
@@ -18,8 +19,8 @@ export default function UserBusinesses() {
     useEffect(() => {
         dispatch(getBusisThunk())
     }, [dispatch])
-    console.log('SESSIONUSER', sessionUser)
-    console.log('USERBUSINESSES BUSIS', busis)
+    // console.log('SESSIONUSER', sessionUser)
+    // console.log('USERBUSINESSES BUSIS', busis)
 
     if (!sessionUser) {
         history.push('/')
@@ -37,7 +38,7 @@ export default function UserBusinesses() {
 
 
     }
-    console.log("BUSI ARR", busiArr)
+    // console.log("BUSI ARR", busiArr)
     return (
         <div className='recent-contain'>
             <h1 id='recent-title'>{sessionUser.firstname}'s Businesses</h1>

@@ -57,7 +57,8 @@ export const getBusReviewsThunk = (businessId) => async dispatch => {
     }
 };
 
-export const createReviewThunk = ({ businessId, payload }) => async dispatch => {
+export const createReviewThunk = ( businessId, payload ) => async dispatch => {
+    // console.log('businessId from THUNKY', businessId, ' Also this payload ', payload)
     const res = await fetch(`/api/reviews/${businessId}/new`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -47,7 +47,7 @@ export default function CreateBusiness() {
         if (isNaN(pricerate)) validationErrors.pricerate = 'Price rating must be an integer'
         if (!pricerate) validationErrors.pricerate = 'Please choose a price rating!'
         if (!descr) validationErrors.descr = 'A business description is required'
-        if (descr.length > 250) validationErrors.descr = 'Business descriptions are limited to 250 characters'
+        if (descr.length > 500) validationErrors.descr = 'Business descriptions are limited to 250 characters'
         if (image && !(imageTypes.some(type => {
             return image.name.endsWith(type)
         }))) {
@@ -72,13 +72,17 @@ export default function CreateBusiness() {
         formData.append("description", descr)
         formData.append("photo_url", image)
 
-        console.log("PHOTO_URL", image)
+        for (const key of formData.keys()) {
+            console.log(key);
+          }
+        for (const value of formData.values()) {
+            console.log(value);
+          }
 
 
         try {
             setUploading(true)
             const newBusi = await dispatch(createBusiThunk(formData, user))
-            console.log('NEWBUSI:>>>>>',newBusi.photo_url)
             history.push(`/businesses/${newBusi.newBusiness.id}`)
         } catch (error) {
             console.error('Error posting business:', error)
@@ -219,7 +223,8 @@ export default function CreateBusiness() {
                                 <input
                                     className='busi-inputs'
                                     type='text'
-                                    placeholder='250 character limit'
+                                    placeholder='500 character limit'
+                                    maxLength='500'
                                     value={descr}
                                     onChange={(e) => setDescr(e.target.value)}
                                 />
