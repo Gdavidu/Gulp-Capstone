@@ -40,9 +40,10 @@ const editReviewAction = (review) => {
 }
 
 export const getAllReviewsThunk = () => async dispatch => {
+    
     const res = await fetch('/api/reviews')
-
     if (res.ok) {
+
         const reviews = await res.json();
         dispatch(getAllReviewsAction(reviews))
     }

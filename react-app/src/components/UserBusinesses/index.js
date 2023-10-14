@@ -47,13 +47,14 @@ export default function UserBusinesses() {
                     {busiArr.length && busiArr.map(bus => (
                         <>
                             <div className="busi-card">
-                                <div className='reviewer-details'>Reviewer Pic & Name</div>
-                                <NavLink className="busi-card-pic-link" exact to={`/businesses/${bus.id}`}>
-                                    <img src={bus.photo_url} alt="Business's picture did not load"></img>
-                                </NavLink>
+                                {/* <div className='reviewer-details'>Reviewer Pic & Name</div> */}
                                 <NavLink className="busi-card-details-link" exact to={`/businesses/${bus.id}`}>
                                     <p className="busi-name">{bus.name}</p>
                                 </NavLink>
+                                <NavLink className="busi-card-pic-link" exact to={`/businesses/${bus.id}`}>
+                                    <img src={bus.photo_url} alt="Business's picture did not load"></img>
+                                </NavLink>
+
                                 {bus.owner_id ? <OpenModalButton
                                 buttonText= <i className="fa fa-solid fa-trash fa-xs"> Delete</i>
                                 modalComponent={<BusinessDelete busId={bus.id}/>}
