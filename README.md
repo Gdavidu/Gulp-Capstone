@@ -1,4 +1,4 @@
-
+# Gulp
 
 This is a Yelp Clone which I named Gulp. This site has a nice rotating splash landing page and has two full crud features: businesses and reviews. 
 
