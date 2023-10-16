@@ -41,6 +41,7 @@ export default function BusinessReviews({ business }) {
             </div>
             <h1>Reviews:</h1>
             <div className='bus-reviews'>
+                {!reviews.length && <h3>No Reviews Yet! </h3>}
                 {reviews.length > 0 && reviews.slice().reverse().map(review => {
 
                     const year = review.created_at.split(" ")[3]
