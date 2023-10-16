@@ -1,148 +1,114 @@
-# Flask React Project
+# Gulp
 
-This is the starter for the Flask React project.
+This is a Yelp Clone which I named Gulp. This site has a nice rotating splash landing page and has two full crud features: businesses and reviews. 
 
-## Getting started
-1. Clone this repository (only this branch)
-
-2. Install dependencies
-
-      ```bash
-      pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-
-4. Make sure the SQLite3 database connection URL is in the **.env** file
-
-5. This starter organizes all tables inside the `flask_schema` schema, defined
-   by the `SCHEMA` environment variable.  Replace the value for
-   `SCHEMA` with a unique name, **making sure you use the snake_case
-   convention**.
-
-6. Get into your pipenv, migrate your database, seed your database, and run your Flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-7. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+# Live Link
+https://gulp-heh2.onrender.com
 
 
-## Deployment through Render.com
+# List of techs/languages/plugins/APIs used:
 
-First, refer to your Render.com deployment articles for more detailed
-instructions about getting started with [Render.com], creating a production
-database, and deployment debugging tips.
+### Backend:
+Python
+Flask
+Django
+PostgreSQL
 
-From the [Dashboard], click on the "New +" button in the navigation bar, and
-click on "Web Service" to create the application that will be deployed.
+### Frontend:
+JavaScript
+React
+Redux
 
-Look for the name of the application you want to deploy, and click the "Connect"
-button to the right of the name.
+### Image Hosting:
+AWS 
 
-Now, fill out the form to configure the build and start commands, as well as add
-the environment variables to properly deploy the application.
+### Styling:
+CSS
+HTML
+Font Awesome
 
-### Part A: Configure the Start and Build Commands
+# Images:
 
-Start by giving your application a name.
+### Landing Page Splash:
+![Didnt load](https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/landing1.png)
 
-Leave the root directory field blank. By default, Render will run commands from
-the root directory.
+### Landing Page Recent Activity:
+![Didnt load](https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/Landing2.png)
 
-Make sure the Environment field is set set to "Python 3", the Region is set to
-the location closest to you, and the Branch is set to "main".
+### Business Page Details:
+![Didnt load](https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/Bus1.png)
 
-Next, add your Build command. This is a script that should include everything
-that needs to happen _before_ starting the server.
+### Post a Comment to Business Page:
+![Didnt load](https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/Bus2.png)
 
-For your Flask project, enter the following command into the Build field, all in
-one line:
+### Personal Page to Manage Business:
+![Didnt load](https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/Personal1.png)
 
-```shell
-# build command - enter all in one line
-npm install --prefix react-app &&
-npm run build --prefix react-app &&
-pip install -r requirements.txt &&
-pip install psycopg2 &&
-flask db upgrade &&
-flask seed all
-```
+# Future Implementations
 
-This script will install dependencies for the frontend, and run the build
-command in the __package.json__ file for the frontend, which builds the React
-application. Then, it will install the dependencies needed for the Python
-backend, and run the migration and seed files.
+## Review Photos
+* Users will be able to upload images with their reviews
 
-Now, add your start command in the Start field:
+## Search
+* User will be able to search businesses by name, category and location.
+* User will be able to search other users by name.
 
-```shell
-# start script
-gunicorn app:app
-```
+## AWS for picture uploads
+* Images on site will be hosted by AWS.
+* User uploads to site will be linked to an AWS bucket and persist.
 
-_If you are using websockets, use the following start command instead for increased performance:_
+## Following
+* Logged in users can follow and unfollow other users.
+* Logged in users can view their followers and who they follow.
 
-`gunicorn --worker-class eventlet -w 1 app:app`
+## Ratings
+* Logged in users can rate other users comments
 
-### Part B: Add the Environment Variables
+# Technical implementation details:
+* Really needed to think aobut store shape and state constantly and had many comonents that inter-tangled and took me a lot of console.logging. 
+* CSS was a very weak point of mine as well but I managed to get a nice looking rotating splash page functional.
 
-Click on the "Advanced" button at the bottom of the form to configure the
-environment variables your application needs to access to run properly. In the
-development environment, you have been securing these variables in the __.env__
-file, which has been removed from source control. In this step, you will need to
-input the keys and values for the environment variables you need for production
-into the Render GUI.
+# Links: 
+* https://github.com/Gdavidu/Gulp-Capstone/
+* www.linkedin.com/in/david-gu-79ab311b5
 
-Click on "Add Environment Variable" to start adding all of the variables you
-need for the production environment.
+# Endpoints:
+## Users
+#### GET <code>/api/users/</code>
+* Returns the information for all users
+#### GET <code>/api/users/:id</code>
+* Returns the information for one user
 
-Add the following keys and values in the Render GUI form:
+## Sessions
+#### GET <code>/api/auth/</code>
+* Returns the information for the logged in user
+#### POST <code>/api/auth/signup</code>
+* Signs a new user up
+#### POST <code>/api/auth/login</code>
+* Logs in a user
+#### DELETE <code>/api/auth/</code>
+* Logs out a user
 
-- SECRET_KEY (click "Generate" to generate a secure secret for production)
-- FLASK_ENV production
-- FLASK_APP app
-- SCHEMA (your unique schema name, in snake_case)
-- REACT_APP_BASE_URL (use render.com url, located at top of page, similar to
-  https://this-application-name.onrender.com)
+## Businesses
+#### GET <code>/api/businesses</code>
+* Returns the information for all businesses
+#### POST <code>/api/businesses</code>
+* Creates a new business
+#### GET <code>/api/businesses/:id</code>
+* Returns the information for one business
+#### PUT <code>/api/businesses/:id</code>
+* Edits the information for one business
+#### DELETE <code>/api/businesses/:id</code>
 
-In a new tab, navigate to your dashboard and click on your Postgres database
-instance.
-
-Add the following keys and values:
-
-- DATABASE_URL (copy value from Internal Database URL field)
-
-_Note: Add any other keys and values that may be present in your local __.env__
-file. As you work to further develop your project, you may need to add more
-environment variables to your local __.env__ file. Make sure you add these
-environment variables to the Render GUI as well for the next deployment._
-
-Next, choose "Yes" for the Auto-Deploy field. This will re-deploy your
-application every time you push to main.
-
-Now, you are finally ready to deploy! Click "Create Web Service" to deploy your
-project. The deployment process will likely take about 10-15 minutes if
-everything works as expected. You can monitor the logs to see your build and
-start commands being executed, and see any errors in the build process.
-
-When deployment is complete, open your deployed site and check to see if you
-successfully deployed your Flask application to Render! You can find the URL for
-your site just below the name of the Web Service at the top of the page.
-
-[Render.com]: https://render.com/
-[Dashboard]: https://dashboard.render.com/# testing-testing
+* Deletes a business
+## Reviews
+#### GET <code>/api/reviews</code>
+* Returns the information for all reviews
+#### POST <code>/api/reviews</code>
+* Creates a new review
+#### GET <code>/api/reviews/:id</code>
+* Returns the information for one review
+#### PUT <code>/api/reviews/:id</code>
+* Edits the information for one review
+#### DELETE <code>/api/reviews/:id</code>
+* Deletes a review
