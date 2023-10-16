@@ -9,7 +9,8 @@ export default function CreateBusiness() {
     const dispatch = useDispatch()
     const history = useHistory()
     const user = useSelector(state => state.session.user)
-
+    document.getElementById('logo').style.color = '#FF1A1A'
+    document.querySelector('.fa-yelp').style.color = '#FF1A1A'
     const [name, setName] = useState('')
     const [image, setImage] = useState('')
     const [phonenum, setPhonenum] = useState('')
@@ -245,7 +246,7 @@ export default function CreateBusiness() {
                             {errors.image && <p className='upload-validators'>{errors.image}</p>}
 
                         </section>
-                        <button id='upload-btn' type="submit" className='button-orange'>Create Business</button>
+                        <button id='upload-btn' type="submit" className='button-nav'>Create Business</button>
                     </div>
                     {(uploading) && <p className='status-message'>Uploading...</p>}
                 </form>

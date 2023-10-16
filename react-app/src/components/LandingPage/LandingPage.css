@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     margin: 50px;
+    font-weight: 800;
+    color: rgba(45,46,47,1);
 }
 
 .recent-squares{
@@ -15,24 +17,51 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+
 }
 
-
+.recent-contain{
+    margin-top:450px;
+}
 #main-image{
-    width: 1200px;
+    min-width: 1200px;
+    width:100%;
     height: 682px;
     object-fit: cover;
-    /* position: absolute; */
+    position: absolute;
     object-position: 0 90%;
     z-index: -1;
-    /* top:0px;
-    left:210px; */
+    top:0px;
+    /* left:210px; */
+    filter: brightness(70%);
 }
 
 body{
-    margin-top: 0px;
+    margin: 0px;
 }
 
 #text{
     display:none;
+}
+
+.hungryboi{
+    font-weight: 800;
+    color: white;
+    font-size: 50px;
+    position:relative;
+    top:200px;
+    left:200px;
+}
+.findRestaurants{
+    margin-top: 25px;
+    position:relative;
+    top:200px;
+    left:200px;
+    padding:15px;
+    font-size: larger;
+    font-weight: 700;
+    background-color: red;
+    color:white;
+    border-radius: 5px;
+    border: none;
 }

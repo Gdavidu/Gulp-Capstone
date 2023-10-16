@@ -19,7 +19,7 @@ export default function BusinessReviews({business}) {
 
     let reviewed=false;
     for(let i=0; i<reviews.length; i++){
-        if(reviews[i].user.id === sessionUser.id) {
+        if(reviews &&[i].user && reviews[i].user.id === sessionUser.id) {
             reviewed=true
             break;
         }

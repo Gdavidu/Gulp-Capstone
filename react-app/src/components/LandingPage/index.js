@@ -7,6 +7,7 @@ import { getBusisThunk } from '../../store/business';
 import BusinessCard from '../BusinessCard';
 import RecentActivity from '../RecentActivity';
 import { getAllReviewsThunk } from '../../store/review';
+import OpenModalButton from '../OpenModalButton';
 
 export default function LandingPage() {
     const sessionUser = useSelector(state => state.session.user);
@@ -23,6 +24,7 @@ export default function LandingPage() {
     useEffect(() => {
         // dispatch(getBusisThunk())
         dispatch(getAllReviewsThunk())
+
     }, [dispatch])
 
     // console.log(reviews)
@@ -37,28 +39,41 @@ export default function LandingPage() {
         }
     }
     // console.log("rev ARR", reviewsArr)
-    console.log(busis)
+    // console.log(busis)
+
+    const handleFindRes = (e) => {
+        e.preventDefault();
+        history.push('/businesses/recent')
+      };
     let index = 0;
+    let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
+    let image = document.getElementById('main-image');
     function replaceImg() {
-        let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
-        let image = document.getElementById('main-image');
         index > 1 ? index = 0 : index++
-        image.src = images[index]
-        image.text = ''
-        image.style.width = '1200px'
-        image.style.height = '682px;'
+        if(image){
+            image.src = images[index]
+            image.id = 'main-image'
+        }
+        // image.text = ''
+        // image.style.width = '1200px'
+        // image.style.height = '682px;'
         // let imgRotate = document.getElementById("imageRotation")
         // imgRotate.text=''
     }
+    document.getElementById('logo').style.color = 'white'
+    document.querySelector('.fa-yelp').style.color = 'white'
+    setInterval(replaceImg, 4000)
     return (
         <>
+            <div className='hungryboi'>Feeling Hungry?</div>
+
+            <button  className='findRestaurants'
+            onClick={handleFindRes}
+            >Find Restaurants</button>
+
             <div className='flex-contain'>
-
-
                 <img src='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg' id='main-image'></img>
-
-
-                {setInterval(replaceImg, 3000)}
+                {/* {setInterval(replaceImg, 4000)} */}
                 {/* <div className='next-container'>
                 <h1 id='next-review'>Your Next Review Awaits:</h1>
             </div> */}

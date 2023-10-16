@@ -24,7 +24,8 @@ export default function OneBusiness() {
     if (!busi) return null
     if (!busi.id) return null
     // console.log(ratingTotal)
-
+    document.getElementById('logo').style.color = '#FF1A1A'
+    document.querySelector('.fa-yelp').style.color = '#FF1A1A'
     return (
 
         <div className="detail-page">
