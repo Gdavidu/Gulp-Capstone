@@ -1,7 +1,7 @@
 #recent-act-title {
     display: flex;
     justify-content: center;
-    margin: 50px;
+    margin: 50px 0px;
     font-weight: 800;
     color: rgba(45,46,47,1);
     width: 100%;

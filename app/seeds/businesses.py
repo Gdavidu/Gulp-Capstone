@@ -23,14 +23,56 @@ def seed_businesses():
     four = Business(
         name="ADDISON", owner_id=1, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
         city='San Diego', state='California', zip=92130, website_url='https://addisondelmar.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/ADDISON.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed+4.jpg',
         description="Southern California's most acclaimed fine dining restaurant. Only MICHELIN-Starred restaurant in San Diego. California Gastronomy at its best.",
         price_rating=4)
+    five = Business(
+        name="Shake Shack", owner_id=4, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed5.jpg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=2)
+    six = Business(
+        name="Falafel Stop", owner_id=5, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed6.jpeg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=1)
+    seven = Business(
+        name="Ulta Sushi", owner_id=6, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed7.jpg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=3)
+    eight = Business(
+        name="Tacos el Gordo", owner_id=7, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed8.jpg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=4)
+    nine = Business(
+        name="Kentucky Fried Chicken", owner_id=8, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed9.jpg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=1)
+    ten = Business(
+        name="Wing Lee", owner_id=9, phone_num='8583142000', street_add='5200 Grand Del Mar Way',
+        city='San Diego', state='California', zip=92130, website_url='https://example.com/',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        description="Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+        price_rating=2)
 
     db.session.add(one)
     db.session.add(two)
     db.session.add(three)
     db.session.add(four)
+    db.session.add(five)
+    db.session.add(six)
+    db.session.add(seven)
+    db.session.add(eight)
+    db.session.add(nine)
+    db.session.add(ten)
     db.session.commit()
 
 

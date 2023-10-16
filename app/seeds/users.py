@@ -9,10 +9,28 @@ def seed_users():
         username='Marnie', firstname='Marnie', lastname='Book', email='marnie@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/marnie.jpg', zipcode='92122')
     dray = User(
         username='Dray', firstname='Draymond', lastname='Green', email='dray@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=94402)
+    john = User(
+        username='John', firstname='John', lastname='Doe', email='john@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=94242)
+    trey = User(
+        username='Trey', firstname='Trey', lastname='Young', email='trey@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=35673)
+    steph = User(
+        username='Steph', firstname='Steph', lastname='Curry', email='steph@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=24456)
+    god = User(
+        username='God', firstname='God', lastname='Christ', email='god@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=78953)
+    tyus = User(
+        username='Tyus', firstname='Tyus', lastname='Jones', email='tyus@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=12445)
+    ja = User(
+        username='Jamorant', firstname='Jagrizzly', lastname='Morant', email='ja@aa.io', password='password', image_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/trashgoober.jpg', zipcode=75463)
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(dray)
+    db.session.add(john)
+    db.session.add(trey)
+    db.session.add(steph)
+    db.session.add(god)
+    db.session.add(tyus)
+    db.session.add(ja)
     db.session.commit()
 
 
