@@ -10,8 +10,29 @@
     grid-template-columns: 350px 350px 350px;
     justify-content: center;
 }
-    
+
 .flex-contain{
     display:flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#main-image{
+    width: 1200px;
+    height: 682px;
+    object-fit: cover;
+    /* position: absolute; */
+    object-position: 0 90%;
+    z-index: -1;
+    /* top:0px;
+    left:210px; */
+}
+
+body{
+    margin-top: 0px;
+}
+
+#text{
+    display:none;
 }

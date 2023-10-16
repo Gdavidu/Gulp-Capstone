@@ -13,6 +13,7 @@ function Navigation({ isLoaded }){
 		history.push('/businesses/new')
 	  }
 	return (
+
 		<ul className='nav-bar'>
 			<div className='nav-container'>
 			<li className="logo-li">
@@ -32,6 +33,7 @@ function Navigation({ isLoaded }){
 			</div>
 			</div>
 		</ul>
+
 	);
 }
 

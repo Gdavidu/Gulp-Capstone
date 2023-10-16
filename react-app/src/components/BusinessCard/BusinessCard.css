@@ -1,3 +1,7 @@
+*{
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .busi-card-pic-link img {
     object-fit: cover;
     height: 250px;
