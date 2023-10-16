@@ -78,7 +78,7 @@ export default function LandingPage() {
                 <h1 id='next-review'>Your Next Review Awaits:</h1>
             </div> */}
                 <div className='recent-contain'>
-                    <h1 id='recent-title'>Recent Activity:</h1>
+                    <h1 id='recent-act-title'>Recent Activity:</h1>
                     <div className='flex-contain'>
                         <div className="recent-squares">
                             {reviewsArr.length && reviewsArr.map(review => (

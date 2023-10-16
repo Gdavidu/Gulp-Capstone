@@ -1,0 +1,81 @@
+.crud-btns-container {
+    margin-top: 10px;
+    margin-bottom: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.delete-btn {
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    border-radius: 4px;
+    font-size: medium;
+    padding: 6px;
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    width: 100px;
+}
+
+.edit-btn {
+    font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid gainsboro;
+    border-radius: 4px;
+    font-size: medium;
+    padding: 6px;
+    color: black;
+    font-weight: 500;
+    width: 100px;
+}
+
+.fa-trash{
+    width: 100%;
+}
+
+#recent-title{
+    display: flex;
+    justify-content: center;
+
+    font-weight: 800;
+    color: rgba(45,46,47,1);
+    width: 100%;
+    margin: 20px 0px;
+    padding: 50px 0px;
+    border-top: 1px solid gainsboro;
+}
+
+#date-rev{
+    margin:0px;
+}
+
+#date-name{
+    margin-bottom: 2px;
+    /* border-top: 1px solid gainsboro; */
+    padding-top: 20px;
+}
+
+.review-btn{
+    width: 100%;
+    position: relative;
+    left: 700px;
+}
+
+.one-review-box{
+    position: relative;
+    left: 100px;
+}
+
+.review-buttons{
+    display: flex;
+    gap: 20px;
+    padding: 10px 0px;
+    border-bottom: 1px solid gainsboro;
+}

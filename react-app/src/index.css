@@ -2,3 +2,8 @@
 #modal-content{
     border-radius: 4px;
 }
+
+.price-rating{
+    font-weight: 600;
+    font-size: 18px;
+}

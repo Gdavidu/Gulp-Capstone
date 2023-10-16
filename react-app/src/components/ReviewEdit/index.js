@@ -57,7 +57,7 @@ console.log(payload)
                                         type="button"
                                         key={index}
                                         className={index <= rating ? "on" : "off"}
-                                        id='stars'
+
                                         onClick={() => setRating(index)}
                                     >
                                         <span className='starIcon'><i class="fa fa-regular fa-star"></i></span>

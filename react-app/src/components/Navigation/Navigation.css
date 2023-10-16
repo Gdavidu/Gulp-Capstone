@@ -74,7 +74,7 @@
 .left-nav{
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
   margin-right: 5em;
   margin-top: 10px;
 }
@@ -130,10 +130,16 @@
 .busi-card-details-link{
   color: black;
   font-weight: 700;
-  /* text-decoration: none; */
+  text-decoration: none;
   font-size: 20px;
 }
 
+.busi-card-details-link:hover{
+  text-decoration: underline;
+  text-decoration-color:rgba(2,122,151,1);
+}
+
 button:hover{
-  cursor: pointer;;
+  cursor: pointer;
+
 }

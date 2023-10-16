@@ -1,3 +1,15 @@
 .busi-name{
     margin-bottom: 10px;
+    color: rgba(2,122,151,1);
+}
+
+.reviewer-details{
+    margin-top: 5px;
+}
+.reviewtext {
+    margin-top: 5px;
+}
+
+.review-rating{
+    margin-top: 5px;
 }

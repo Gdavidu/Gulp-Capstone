@@ -12,6 +12,7 @@ export default function RecentActivity({ review }) {
                 <img src={review.business.photo_url} alt="Business's picture did not load"></img>
             </NavLink>
             <div className='reviewer-details'>{review.user.firstname} {review.user.lastname[0].toUpperCase()}. has left a review: </div>
+            <div className="reviewtext">"{review.review}"</div>
             <div className="review-rating">{[...Array(5)].map((star, index) => {
                 index += 1;
                 return (
@@ -21,7 +22,6 @@ export default function RecentActivity({ review }) {
                 );
             })}
             </div>
-            <div className="reviewtext">{review.review}</div>
         </div>
     )
 }

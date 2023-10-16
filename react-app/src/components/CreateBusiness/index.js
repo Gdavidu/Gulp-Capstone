@@ -94,7 +94,7 @@ export default function CreateBusiness() {
     return (
         <div className='index'>
             <div className='busi-upload-div'>
-                <h1>Create a Business</h1>
+                <h1 className='createbusTitle'>Create a Business: </h1>
                 <form className='upload-form' encType="multipart/form-data" onSubmit={handleSubmit}>
                     <div className='upload-div'>
                         <section id='upload-form-data'>

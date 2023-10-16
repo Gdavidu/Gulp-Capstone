@@ -56,15 +56,18 @@ export default function UserBusinesses() {
                                 <NavLink className="busi-card-pic-link" exact to={`/businesses/${bus.id}`}>
                                     <img src={bus.photo_url} alt="Business's picture did not load"></img>
                                 </NavLink>
-
+                                <div className='crud-btns-container'>
                                 {bus.owner_id ? <OpenModalButton
-                                buttonText= <i className="fa fa-solid fa-trash fa-xs"> Delete</i>
+                                buttonClass='delete-btn'
+                                buttonText= <i className="fa fa-solid fa-trash fa-xs"><div className='btn-text'>Delete</div></i>
                                 modalComponent={<BusinessDelete busId={bus.id}/>}
                                 ></OpenModalButton>: null}
                                 {bus.owner_id ? <OpenModalButton
-                                buttonText= <i className="fa fa-solid fa-pen-nib fa-xs"> Edit</i>
+                                buttonClass='edit-btn'
+                                buttonText= <i className="fa fa-solid fa-pen-nib fa-xs"><div className='btn-text'>Edit</div></i>
                                 modalComponent={<BusinessEdit busId={bus.id}/>}
                                 ></OpenModalButton>: null}
+                                </div>
                             </div>
                         </>
                     ))}

@@ -43,10 +43,10 @@ export default function BusinessRecent() {
                                     <img src={bus.photo_url} alt="Business's picture did not load"></img>
                                 </NavLink>
                                 <div className="bus-pricing">
-                                   <div>Price Range:</div>
+                                   <div className="price-rating">Price Range:</div>
                                 {[...Array(bus.price_rating)].map(() => {
                         return (
-                            <span id='bus-detail-price' className='dollar'><i className="fa fa-solid fa-dollar-sign"></i></span>
+                            <span className='dollar'><i className="fa fa-solid fa-dollar-sign"></i></span>
 
                         )
 
