@@ -100,9 +100,23 @@
 
 .logo-li{
   display: flex;
-
+  align-items: center;
+  gap:40px;
 }
 
+#siteFooter{
+  position: relative;
+  top:10px;
+  gap: 12px;
+  width: 500px
+}
+.links{
+  margin: 0px 15px;
+  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: black;
+}
 .alignlogo{
   display: flex;
   align-items: center;

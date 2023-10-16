@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function RecentActivity({ review }) {
     return (
+        <>
         <div className="busi-card">
             <NavLink className="busi-card-details-link" exact to={`/businesses/${review.business.id}`}>
                 <p className="busi-name">{review.business.name}</p>
@@ -23,5 +24,7 @@ export default function RecentActivity({ review }) {
             })}
             </div>
         </div>
+        
+        </>
     )
 }

@@ -30,6 +30,10 @@ function Navigation({ isLoaded }){
 			<div className='nav-container'>
 			<li className="logo-li">
 				<NavLink id='noDeco' exact to="/"><span id="logo">Gulp </span><div className='alignlogo'><i className="fa-brands fa-yelp fa-2xl"></i></div></NavLink>
+				<div id='siteFooter'>
+            <a className='links' href="https://github.com/Gdavidu/Gulp-Capstone">My Github</a>
+            <a  className='links' href="www.linkedin.com/in/david-gu-79ab311b5">My Linkedin</a>
+        </div>
 			</li>
 			<div className='left-nav'>
 				{sessionUser ? (
@@ -43,7 +47,7 @@ function Navigation({ isLoaded }){
 				</li>
 			):
 			<>
-			
+
             <OpenModalButton
               buttonText="Log In"
 			  buttonClass='button-nav'

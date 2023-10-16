@@ -72,6 +72,7 @@ export default function LandingPage() {
             >Find Restaurants</button>
 
             <div className='flex-contain'>
+            
                 <img src='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg' id='main-image'></img>
                 {/* {setInterval(replaceImg, 4000)} */}
                 {/* <div className='next-container'>
@@ -89,6 +90,7 @@ export default function LandingPage() {
                         </div>
                     </div>
                 </div>
+
             </div>
         </>
     )
