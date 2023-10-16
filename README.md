@@ -1,4 +1,4 @@
-![image](https://github.com/Gdavidu/Gulp-Capstone/assets/122952720/7f15351a-4da2-4500-ad11-3f5e29b87a38)# Gulp
+
 
 This is a Yelp Clone which I named Gulp. This site has a nice rotating splash landing page and has two full crud features: businesses and reviews. 
 
