@@ -19,7 +19,7 @@ export default function BusinessReviews({ business }) {
 
     let reviewed = false;
     for (let i = 0; i < reviews.length; i++) {
-        if (reviews && reviews[i].user && reviews[i].user.id === sessionUser.id) {
+        if (sessionUser && reviews && reviews[i].user && reviews[i].user.id === sessionUser.id) {
             reviewed = true
             break;
         }
@@ -27,7 +27,7 @@ export default function BusinessReviews({ business }) {
 
     return (
         <>
-    {sessionUser.id == business.owner_id ? <div id='urbusi'>This is your business (you cannot review your own business)!</div>: null}
+    {sessionUser && sessionUser.id == business.owner_id ? <div id='urbusi'>This is your business (you cannot review your own business)!</div>: null}
             <div className='review-btn'>
                 {sessionUser && (sessionUser.id !== business.owner_id) && !reviewed ?
                     <OpenModalButton
