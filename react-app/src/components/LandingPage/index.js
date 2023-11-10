@@ -1,8 +1,8 @@
 import './LandingPage.css'
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { useEffect } from "react";
+import { useEffect, useCallback} from "react";
 import { getBusisThunk } from '../../store/business';
 import BusinessCard from '../BusinessCard';
 import RecentActivity from '../RecentActivity';
@@ -16,8 +16,22 @@ export default function LandingPage() {
     const busisObj = useSelector(state => state.businesses.allBusinesses);
     const busis = Object.values(busisObj)
     const reviews = useSelector(state => Object.values(state.reviews.allReviews).reverse())
+    let [count, setCount] = useState(0)
+    let [img, setImg] = useState('https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp.jpg')
+    document.getElementById('logo').style.color = 'white'
+    document.querySelector('.fa-yelp').style.color = 'white'
+    const carousel = useCallback(()=>{
+        let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp3new.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5new.webp','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/spreadnew.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp7.webp','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp4new.webp', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
+        setImg(images[count])
+        setCount(count+1)
+        if(count+1 === images.length) setCount(0)
+    },[count])
 
-    // window.setInterval(replaceImg, 4000)
+    useEffect(() => {
+        const interval = setInterval(()=>carousel(), 4500)
+        return ()=> clearInterval(interval)
+    }, [img,count,carousel])
+    // // window.setInterval(replaceImg, 4000)
 
     useEffect(() => {
         dispatch(getBusisThunk())
@@ -25,11 +39,26 @@ export default function LandingPage() {
         // dispatch(getAllReviewsThunk)
     }, [dispatch])
 
-    // useEffect(()=>{
-    //     setInterval(replaceImg, 4000)
-    // },[])
 
-    // console.log(reviews)
+
+
+
+    // let index = 0;
+    // const replaceImg = ()=>{
+    //     index > 1 ? index = 0 : index++
+    //     // if (document.readyState === "complete" || document.readyState === "loaded") {
+    //         // if (imgCarousel) clearInterval(imgCarousel)
+    //         let image = document.getElementById('main-image');
+    //         if (image){
+    //             console.log('hit')
+    //             image.src = images[index]
+    //             image.id = 'main-image'
+    //         }
+    // //    }
+    // }
+    //     if (imgCarousel) clearInterval(imgCarousel)
+    //     imgCarousel = setInterval(replaceImg, 5000)
+
     if (!reviews.length) return null
     const reviewsArr = []
     const noRepeats = []
@@ -47,26 +76,8 @@ export default function LandingPage() {
       };
 
 
-    document.getElementById('logo').style.color = 'white'
-    document.querySelector('.fa-yelp').style.color = 'white'
-    let index = 0;
-    let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
 
 
-    const replaceImg = ()=>{
-        index > 1 ? index = 0 : index++
-        // if (document.readyState === "complete" || document.readyState === "loaded") {
-            clearInterval(imgCarousel)
-            let image = document.getElementById('main-image');
-            if (image){
-                console.log('hit')
-                image.src = images[index]
-                image.id = 'main-image'
-            }
-    //    }
-    }
-
-        const imgCarousel = setInterval(replaceImg, 5000)
 
 
 
@@ -75,7 +86,7 @@ export default function LandingPage() {
 
     return (
         <>
-            <div className='hungryboi'>Feeling Hungry?</div>
+            <div className='hungryboi'>Who's a hungry boy?</div>
 
             <button  className='findRestaurants'
             onClick={handleFindRes}
@@ -83,7 +94,7 @@ export default function LandingPage() {
 
             <div className='flex-contain'>
 
-                <img src='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg' id='main-image'></img>
+                <img src={img} id='main-image'></img>
                 <div className='recent-contain'>
                     <h1 id='recent-act-title'>Recent Activity:</h1>
                     <div className='flex-contain'>

@@ -3,6 +3,18 @@ import { NavLink } from 'react-router-dom';
 
 
 export default function RecentActivity({ key, review }) {
+    function concat(str) {
+
+        if (str){
+            let reviewConcat = str.substring(0,35)
+            // console.log(reviewConcat[reviewConcat.length-1])
+            if (reviewConcat[reviewConcat.length-1] === ' ') reviewConcat = reviewConcat.substring(0,reviewConcat.length-1)
+            if (reviewConcat.length>=34) reviewConcat += '..'
+            // console.log(reviewConcat)
+            return reviewConcat
+        }
+    }
+
     return (
         <>
         <div key={key} className="busi-card" >
@@ -13,7 +25,7 @@ export default function RecentActivity({ key, review }) {
                 <img src={review.business.photo_url} alt="Business's picture did not load"></img>
             </NavLink>
             <div className='reviewer-details'>{review.user.firstname} {review.user.lastname[0].toUpperCase()}. has left a review: </div>
-            <div className="reviewtext">"{review.review}"</div>
+            <div className="reviewtext">"{concat(review.review)}"</div>
             <div className="review-rating">{[...Array(5)].map((star, index) => {
                 index += 1;
                 return (
