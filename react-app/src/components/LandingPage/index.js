@@ -66,9 +66,9 @@ export default function LandingPage() {
     //    }
     }
 
-        const imgCarousel = () => {setInterval(replaceImg, 5000)}
+        const imgCarousel = setInterval(replaceImg, 5000)
 
-        imgCarousel()
+
 
         // window.addEventListener("pagehide", clearInterval(imgCarousel), console.log('cleared'))
 
