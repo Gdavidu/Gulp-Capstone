@@ -16,16 +16,18 @@ export default function LandingPage() {
     const busisObj = useSelector(state => state.businesses.allBusinesses);
     const busis = Object.values(busisObj)
     const reviews = useSelector(state => Object.values(state.reviews.allReviews).reverse())
+
+    // window.setInterval(replaceImg, 4000)
+
     useEffect(() => {
         dispatch(getBusisThunk())
+        dispatch(getAllReviewsThunk())
         // dispatch(getAllReviewsThunk)
     }, [dispatch])
 
-    useEffect(() => {
-        // dispatch(getBusisThunk())
-        dispatch(getAllReviewsThunk())
-
-    }, [dispatch])
+    // useEffect(()=>{
+    //     setInterval(replaceImg, 4000)
+    // },[])
 
     // console.log(reviews)
     if (!reviews.length) return null
@@ -38,31 +40,39 @@ export default function LandingPage() {
             reviewsArr.push(reviews[i])
         }
     }
-    // console.log("rev ARR", reviewsArr)
-    // console.log(busis)
 
     const handleFindRes = (e) => {
         e.preventDefault();
         history.push('/businesses/recent')
       };
-    let index = 0;
-    let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
-    let image = document.getElementById('main-image');
-    function replaceImg() {
-        index > 1 ? index = 0 : index++
-        if(image){
-            image.src = images[index]
-            image.id = 'main-image'
-        }
-        // image.text = ''
-        // image.style.width = '1200px'
-        // image.style.height = '682px;'
-        // let imgRotate = document.getElementById("imageRotation")
-        // imgRotate.text=''
-    }
+
+
     document.getElementById('logo').style.color = 'white'
     document.querySelector('.fa-yelp').style.color = 'white'
-    setInterval(replaceImg, 4000)
+    let index = 0;
+    let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg']
+
+
+    const replaceImg = ()=>{
+        index > 1 ? index = 0 : index++
+        // if (document.readyState === "complete" || document.readyState === "loaded") {
+            clearInterval(imgCarousel)
+            let image = document.getElementById('main-image');
+            if (image){
+                console.log('hit')
+                image.src = images[index]
+                image.id = 'main-image'
+            }
+    //    }
+    }
+
+        const imgCarousel = () => {setInterval(replaceImg, 5000)}
+
+        imgCarousel()
+
+        // window.addEventListener("pagehide", clearInterval(imgCarousel), console.log('cleared'))
+
+
     return (
         <>
             <div className='hungryboi'>Feeling Hungry?</div>
@@ -72,12 +82,8 @@ export default function LandingPage() {
             >Find Restaurants</button>
 
             <div className='flex-contain'>
-            
+
                 <img src='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg' id='main-image'></img>
-                {/* {setInterval(replaceImg, 4000)} */}
-                {/* <div className='next-container'>
-                <h1 id='next-review'>Your Next Review Awaits:</h1>
-            </div> */}
                 <div className='recent-contain'>
                     <h1 id='recent-act-title'>Recent Activity:</h1>
                     <div className='flex-contain'>
