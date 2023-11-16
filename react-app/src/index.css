@@ -48,15 +48,30 @@ body{
   .menu__item {
     list-style: none;
     margin: 0px 20px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  #linkedin-text{
+    margin-top: 1px;
   }
 
   #resume{
+    margin-top: 8.5px;
+  }
+
+  #emailtxt{
     margin-top: 7px;
   }
   .links-text{
     margin-top: 5px;
     font-size: small;
   }
+  .phone-links-text{
+    margin-top: 11px;
+    font-size: small;
+  }
+
 
  .foot-text{
   font-size: 1.2rem;
@@ -65,15 +80,17 @@ body{
   margin-bottom: 25px;
   display: flex;
   justify-content: center;
+  opacity: .8;
  }
 
  .foot-tech{
   font-size: 1.2rem;
   font-weight: 550;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 27px;
   display: flex;
   justify-content: center;
+  opacity: .8;
  }
 
   .menu__link {
@@ -89,6 +106,18 @@ body{
     opacity: 0.75;
     font-weight: 300;
   }
+  .contact-link{
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 8px 10px 0px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.75;
+    font-weight: 300;
+  }
 
   .menu__link:hover {
     opacity: 1;
@@ -96,9 +125,10 @@ body{
 
   .footer p {
     color: #fff;
-    margin: 30px 0 0 70px;
+    margin: 30px 0 0 50px;
     font-size: 1rem;
     font-weight: 300;
+    opacity: .75;
   }
 
   .about-wrapper{
@@ -106,12 +136,15 @@ body{
     justify-content: center;
     gap: 150px;
     align-items: flex-start;
-    width: 80%;
+    width: 90%;
+    margin-right: 50px;
   }
 
   .teck-stak{
-    color: #e1e0e0;
+    color: #fff;
     margin-top: 2px;
+    opacity: 75%;
+    font-size: .9rem;
   }
   /* .foot-links{
     display: flex;
