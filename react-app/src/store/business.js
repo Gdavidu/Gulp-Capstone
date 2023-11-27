@@ -58,6 +58,18 @@ export const getBusisThunk = () => async dispatch => {
     }
 };
 
+export const getSearchedBusisThunk = (query) => async dispatch => {
+    const res = await fetch(`/api/businesses/search?=${query}`)
+
+    if (res.ok) {
+        console.log(res)
+        const busis = await res.json();
+        console.log(busis)
+        dispatch(getBusisAction(busis))
+    }
+}
+
+
 export const createBusiThunk = (business, user) => async dispatch => {
     try {
         const res = await fetch('/api/businesses/new', {

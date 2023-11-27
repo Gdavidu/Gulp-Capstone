@@ -1,9 +1,10 @@
 from flask import Blueprint, jsonify, render_template, request
 from flask_login import login_required, current_user
-from app.models import Business, db
+from app.models import Business, db, User
 from .AWS_helpers import upload_file_to_s3, get_unique_filename, remove_file_from_s3
 from ..forms.business_form import BusinessForm
 from ..forms.business_edit_form import BusinessEditForm
+from sqlalchemy import func, or_
 businesses = Blueprint('businesses', __name__)
 
 @businesses.route('')
@@ -108,3 +109,10 @@ def edit_busin(id):
     else:
         print(form.errors)
         return {"errors": form.errors}
+
+@businesses.route('/search')
+def search_busi():
+    query = request.args.get('').lower()
+    get_busis = db.session.query(Business).join(User, User.id == Business.owner_id).filter(or_(func.lower(Business.name).like(f'%{query}%'), func.lower(User.username).like(f'%{query}%')))
+    response = [busi.to_dict() for busi in get_busis]
+    return response
