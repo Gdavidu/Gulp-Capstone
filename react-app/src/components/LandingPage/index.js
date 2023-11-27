@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { useEffect, useCallback} from "react";
 import { getBusisThunk } from '../../store/business';
-import BusinessCard from '../BusinessCard';
 import RecentActivity from '../RecentActivity';
 import { getAllReviewsThunk } from '../../store/review';
-import OpenModalButton from '../OpenModalButton';
+
 
 export default function LandingPage() {
     const sessionUser = useSelector(state => state.session.user);

@@ -44,10 +44,11 @@
     display: flex;
     justify-content: center;
 
-    font-weight: 800;
+    /* font-weight: 800; */
     color: rgba(45,46,47,1);
     width: 100%;
-    margin: 20px 0px;
+    margin-top: 36px;
+    margin-bottom: 0px;
     padding: 50px 0px;
     border-top: 1px solid gainsboro;
 }

@@ -10,6 +10,8 @@ import Navigation from "./components/Navigation";
 import UserBusinesses from "./components/UserBusinesses";
 import OneBusiness from "./components/OneBusiness";
 import BusinessRecent from "./components/BusinessRecent";
+import BusinessSearch from "./components/BusinessSearch";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,6 +35,9 @@ function App() {
           </Route>
           <Route exact path='/businesses/recent'>
             <BusinessRecent />
+          </Route>
+          <Route exact path='/businesses/search'>
+            <BusinessSearch />
           </Route>
           <Route exact path='/businesses/:busiId'>
             <OneBusiness />

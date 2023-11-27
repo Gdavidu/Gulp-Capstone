@@ -1,0 +1,21 @@
+.not-found{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 70px; */
+    justify-content: center;
+    min-height: 500px
+}
+
+.nav-border{
+    width: 100%;
+    margin-top: 36px;
+    border-top: 1px solid gainsboro;
+}
+
+.search-keyword{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 50px;
+}

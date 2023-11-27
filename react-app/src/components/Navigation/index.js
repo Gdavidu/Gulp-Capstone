@@ -9,6 +9,7 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import { useHistory } from 'react-router-dom';
 import SignupFormModal from "../SignupFormModal";
+import SearchBar from './SearchBar';
 
 function Navigation({ isLoaded }){
 	const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function Navigation({ isLoaded }){
             <a  className='links' href="www.linkedin.com/in/david-gu-79ab311b5">My Linkedin</a>
         </div> */}
 			</li>
+		<li className='search-bar'>
+			<SearchBar id='searchbar'/>
+		</li>
 			<div className='left-nav'>
 				{sessionUser ? (
 			<li>
