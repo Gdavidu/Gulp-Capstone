@@ -85,7 +85,7 @@ export default function LandingPage() {
 
     return (
         <>
-            <div className='hungryboi'>Who's a hungry boy?</div>
+            <div className='hungryboi'>Feeling Hungry?</div>
 
             <button  className='findRestaurants'
             onClick={handleFindRes}
