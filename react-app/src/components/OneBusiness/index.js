@@ -4,13 +4,43 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBusiThunk } from "../../store/business";
 import BusinessReviews from '../BusinessReviews';
+import { Loader } from "@googlemaps/js-api-loader"
 
+// import { Loader } from '@googlemaps/js-api-loader';
+// import {
+//     APIProvider,
+//     Map,
+//     Marker
+// }
+// from "@vis.gl/react-google-maps";
+
+// "use client";
 export default function OneBusiness() {
+    // const dotenv = require("dotenv")
+    // dotenv.config()
+    const mapApi = process.env.REACT_APP_GOOGLEMAPSAPI_KEY
     const { busiId } = useParams();
     const dispatch = useDispatch();
     const busi = useSelector(state => state.businesses.singleBusiness);
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
     const reviews = useSelector(state => Object.values(state.reviews.business))
+    const [coordinates, setCoordinates] = useState({})
+//     console.log('API KEY', mapApi)
+// console.log('Env keys', process.env.REACT_APP_BASE_URL)
+// console.log('test', process.env.REACT_APP_TEST)
+    // const loader =  new Loader({
+    //     apiKey: mapApi,
+    //     version: "weekly",
+    //     libraries: ["places"]
+    //   });
+    //   const mapOptions = {
+    //     center: {
+    //       lat: 0,
+    //       lng: 0
+    //     },
+    //     zoom: 4
+    //   };
+
     useEffect(() => {
         dispatch(getBusiThunk(busiId))
     }, [dispatch])
@@ -20,13 +50,65 @@ export default function OneBusiness() {
         ratingSum += reviews[i].rating
     }
     const ratingTotal = Math.floor(ratingSum / reviews.length)
+    // console.log('PLAIN ADDRESS', plainAddr)
+    // console.log('ENCODED ADDRESS', escapedAddr)
+    const plainAddr = `${busi.street_add} ${busi.city} ${busi.state}`
+    const escapedAddr = encodeURIComponent(plainAddr)
+    const geocodingUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${escapedAddr}&key=${mapApi}`
+    useEffect(() => {
+        fetch(geocodingUrl).then(result => result.json())
+          .then(data =>{
+            if(!data || data.status === 'ZERO_RESULTS'){
+                throw new Error('Could not locate address')
+            }
+              setCoordinates(data.results[0].geometry.location)
+          }
+        )
+        .catch(error=>{
+            console.log('Error: ', error)
+        });
+    }, [geocodingUrl,escapedAddr,plainAddr])
 
     if (!busi) return null
     if (!busi.id) return null
-    // console.log(ratingTotal)
+
+    // manual change of the 'Gulp' logo color
     document.getElementById('logo').style.color = '#FF1A1A'
     document.querySelector('.fa-yelp').style.color = '#FF1A1A'
+
+    // form a readable address for geocoding
+
+    // const geocodingUrl = `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=${myAPIKey}`;
+    console.log('COORDINATES STATE VAR', coordinates)
+
+        const loader = new Loader({
+            apiKey: mapApi,
+            version: "weekly",
+          });
+
+          const mapOptions = {
+            center: coordinates,
+            zoom: 16
+          };
+
+        loader
+        .importLibrary('maps')
+        .then(({Map}) => {
+        new Map(document.getElementById("map"), mapOptions);
+      })
+      .catch((e) => {
+        const map = document.getElementById("map")
+        console.log('map div', map)
+        map.innerText = "Map could not be loaded ):"
+      });
+    
     return (
+        <>
+        {/* <APIProvider apiKey={process.env.GOOGLE_MAPS_API_KEY}>
+            <div id='map'>
+                <Map zoom={9} center={position}></Map>
+            </div>
+        </APIProvider> */}
 
         <div className="detail-page">
             <header id="header-wrap">
@@ -57,6 +139,7 @@ export default function OneBusiness() {
 
             <div id='belowImg'>
                 <div id='bus-info'>
+                <div id='map'></div>
                     <div id='bus-addr'>
                         Located at:
                         <div className='box-info-add' >
@@ -85,5 +168,6 @@ export default function OneBusiness() {
                 </div>
             </div>
         </div>
+        </>
     )
 }

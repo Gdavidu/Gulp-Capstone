@@ -12,6 +12,7 @@ import OneBusiness from "./components/OneBusiness";
 import BusinessRecent from "./components/BusinessRecent";
 import BusinessSearch from "./components/BusinessSearch";
 
+require("dotenv").config();
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);

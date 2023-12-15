@@ -13,6 +13,10 @@
     margin-top: 20px;
 }
 
+#map{
+    width: 500px;
+    height: 500px;
+}
 .detail-page{
     width:100%
 }
