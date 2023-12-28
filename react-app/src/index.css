@@ -133,11 +133,12 @@ body{
 
   .about-wrapper{
     display: flex;
+    width: 95%;
     justify-content: center;
     gap: 150px;
     align-items: flex-start;
-    width: 90%;
-    margin-right: 50px;
+    /* width: 90%; */
+    /* margin-right: 50px; */
   }
 
   .teck-stak{
@@ -149,3 +150,9 @@ body{
   /* .foot-links{
     display: flex;
   } */
+
+  #copyright{
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+  }

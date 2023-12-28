@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Gulp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/yelp.256x256.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"> -->
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+
+<head>
+  <meta charset="utf-8" />
+  <title>Gulp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/yelp.256x256.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous"> -->
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
       integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
      -->
-     <script src="https://kit.fontawesome.com/550031d393.js" crossorigin="anonymous"></script>
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
-    </head>
-    <body>
-      <div id="root"></div>
-    </body>
-    <footer class="footer">
-      <div class="about-wrapper">
-      <div class="foot-links">
+  <script src="https://kit.fontawesome.com/550031d393.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+<footer class="footer" id="delay" style="display: none;">
+  <div class="about-wrapper">
+    <div class="foot-links">
       <div class="foot-text">
         Developer Links
       </div>
       <ul class="menu">
-        <li class="menu__item"><a class="menu__link" target="_blank" href="https://github.com/Gdavidu"><i class="fa fa-brands fa-github fa-xl"></i><div class="links-text">Github</div></a></li>
-        <li class="menu__item"><a class="menu__link" target="_blank" href="https://linkedin.com/in/david-gu-79ab311b5"><i class="fa fa-brands fa-linkedin fa-xl"></i><div id="linkedin-text" class="links-text">Linkedin</div></a></li>
-        <li class="menu__item"><a class="menu__link" target="_blank" href="https://docs.google.com/document/d/1s5hz7BysUVVQjtCYFqws1WLpM0qSGWMIgOzcqxPqBkM/edit?usp=sharing"><i class="fa-solid fa-file fa-lg"></i><div id='resume' class="links-text">Resume</div></a></li>
+        <li class="menu__item"><a class="menu__link" target="_blank" href="https://github.com/Gdavidu"><i
+              class="fa fa-brands fa-github fa-xl"></i>
+            <div class="links-text">Github</div>
+          </a></li>
+        <li class="menu__item"><a class="menu__link" target="_blank"
+            href="https://linkedin.com/in/david-gu-79ab311b5"><i class="fa fa-brands fa-linkedin fa-xl"></i>
+            <div id="linkedin-text" class="links-text">Linkedin</div>
+          </a></li>
+        <li class="menu__item"><a class="menu__link" target="_blank"
+            href="https://docs.google.com/document/d/1s5hz7BysUVVQjtCYFqws1WLpM0qSGWMIgOzcqxPqBkM/edit?usp=sharing"><i
+              class="fa-solid fa-file fa-lg"></i>
+            <div id='resume' class="links-text">Resume</div>
+          </a></li>
       </ul>
     </div>
     <div class="foot-links">
@@ -34,9 +46,17 @@
         Contact Me
       </div>
       <ul class="menu">
-        <li class="menu__item"><div class="contact-link"><i class="fa fa-solid fa-phone fa-rotate-90 fa-lg"></i><div class="phone-links-text">(408)-477-5696</div></div></li>
-        <li class="menu__item"><div class="contact-link"><i class="fa fa-solid fa-envelope fa-lg"></i><div id='emailtxt' class="links-text">david_gu@yahoo.com</div></div></li>
-        <!-- <li class="menu__item"><a class="menu__link" href="#"><i class="fa fa-solid fa-location-dot fa-xl"></i><div id='resume' class="links-text"></div></a></li> -->
+        <li class="menu__item">
+          <div class="contact-link"><i class="fa fa-solid fa-phone fa-rotate-90 fa-lg"></i>
+            <div class="phone-links-text">(408)-477-5696</div>
+          </div>
+        </li>
+        <li class="menu__item">
+          <div class="contact-link"><i class="fa fa-solid fa-envelope fa-lg"></i>
+            <div id='emailtxt' class="links-text">david_gu@yahoo.com</div>
+          </div>
+        </li>
+
       </ul>
     </div>
     <div class="foot-links">
@@ -54,7 +74,14 @@
       </div>
     </div>
   </div>
-  <p>&copy;2023 David Gu | All Rights Reserved</p>
+  <p id="copyright">&copy;2023 David Gu | All Rights Reserved</p>
+</footer>
+<script>
+  function showDelayedEle(){
+    var footerEle = document.getElementById('delay')
+    footerEle.style.display = 'block'
+  }
+  setTimeout(showDelayedEle,500)
+</script>
 
-    </footer>
 </html>
