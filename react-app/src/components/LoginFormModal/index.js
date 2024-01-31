@@ -15,11 +15,17 @@ function LoginFormModal() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
+      // console.log(data)
       setErrors(data);
+      // errors.map((error)=>{
+      //   const split = error.split(':')
+      //   return split[1]
+      // })
     } else {
         closeModal()
     }
   };
+
 
   return (
     <>
@@ -27,9 +33,11 @@ function LoginFormModal() {
 		<div className="signup-box">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+        <ul className="login-modal-errors">
+          {errors.map((error, index) => (
+
+              <li key={index}>{error.split(':')[1]}</li>
+
           ))}
         </ul>
         <label>
