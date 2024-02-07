@@ -11,19 +11,19 @@ def seed_reviews():
     four = Review(
         user_id=1, business_id=5, rating=3, review='Lines are insane ):', created_at=datetime.utcnow())
     five = Review(
-        user_id=4, business_id=10, rating=5, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=4, business_id=10, rating=5, review='Ambience is amazing', created_at=datetime.utcnow())
     six = Review(
-        user_id=5, business_id=9, rating=3, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=5, business_id=9, rating=3, review='Food is execellent but service is atrocious', created_at=datetime.utcnow())
     seven = Review(
-        user_id=6, business_id=8, rating=2, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=6, business_id=8, rating=2, review='Waited 2 hours and got turned away', created_at=datetime.utcnow())
     eight = Review(
-        user_id=7, business_id=7, rating=1, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=7, business_id=7, rating=1, review='Food poison', created_at=datetime.utcnow())
     nine = Review(
-        user_id=8, business_id=6, rating=4, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=8, business_id=6, rating=4, review='Almost lives up to the original location', created_at=datetime.utcnow())
     ten = Review(
-        user_id=9, business_id=3, rating=3, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=9, business_id=3, rating=3, review='Good but not worth the hype', created_at=datetime.utcnow())
     eleven = Review(
-        user_id=8, business_id=4, rating=2, review='Bla bla bla', created_at=datetime.utcnow())
+        user_id=8, business_id=4, rating=2, review='The workers really dont care', created_at=datetime.utcnow())
 
     db.session.add(one)
     db.session.add(two)
