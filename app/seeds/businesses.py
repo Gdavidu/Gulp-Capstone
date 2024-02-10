@@ -65,25 +65,25 @@ def seed_businesses():
     eleven = Business(
         name="An | Japanese Restaurant", owner_id=10, phone_num='4153503949', street_add='22 Peace Plaza',
         city='San Francisco', state='California', zip=94115, website_url='https://sushiansf.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed11.jpg',
         description="Snug Japanese eatery with an upscale vibe offering an omakase menu & sushi, plus sake & spirits.",
         price_rating=3)
     twelve = Business(
         name="Pacific Beach Fish Shop", owner_id=11, phone_num='8585430094', street_add='1775 Garnet Ave',
         city='San Diego', state='California', zip=92109, website_url='https://thefishshops.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed12.jpg',
         description="Cheery restaurant serving fresh fish & seafood in tacos, sandwiches & salads, with local microbrews. $1 oysters Thursdays, after 5PM",
         price_rating=2)
     thirteen = Business(
         name="State Bird Provisions", owner_id=12, phone_num='4157951272', street_add='1529 Fillmore St',
         city='San Francisco', state='California', zip=94115, website_url='https://statebirdsf.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed13.jpg',
         description="Urban-rustic storefront setting for a changing menu of American small plates served dim-sum style.",
         price_rating=3)
     fourteen = Business(
         name="Salt & Straw", owner_id=13, phone_num='6509832234', street_add='1309 Burlingame Ave Suite 110',
         city='Burlingame', state='California', zip=94010, website_url='https://saltandstraw.olo.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed14.jpg',
         description="Burlingame scoop shop",
         price_rating=1)
     fifteen = Business(
@@ -95,31 +95,31 @@ def seed_businesses():
     sixteen = Business(
         name="Wakuriya", owner_id=15, phone_num='6504086757', street_add='115 De Anza Blvd',
         city='San Mateo', state='California', zip=94402, website_url='https://wakuriya.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed16.jpg',
         description="Compact, upscale Japanese eatery serving multicourse kaiseki menus at fixed seating times.",
         price_rating=4)
     seventeen = Business(
         name="Uncle John's Cafe", owner_id=15, phone_num='2136134567', street_add='834 S Grand Ave',
         city='Los Angeles', state='California', zip=90017, website_url='https://unclejohnsdtla.com',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed17.jpg',
         description="Chinese-American diner with a menu ranging from egg rolls & spicy pork chops to omelets & burgers.",
         price_rating=1)
     eighteen = Business(
         name="Mezze and Mooore", owner_id=3, phone_num='4156594059', street_add='834 S Grand Ave',
         city='San Francisco', state='California', zip=94103, website_url='https://mezzeandmooore.com',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed18.jpg',
         description="Our menu features many variety of Lebanese Mezze. Such as Hunmus , tabouli, BaBaGhanouge, and more.",
         price_rating=2)
     nineteen = Business(
         name="Mumu Hot Pot", owner_id=1, phone_num='6509864381', street_add='1099 Foster Square Ln #135',
         city='Foster City', state='California', zip=94404, website_url='https://www.yelp.com/biz/mumu-hot-pot-foster-city-2',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed19.jpg',
         description="AYCE hot pot",
         price_rating=3)
     nineteen = Business(
         name="Mumu Hot Pot", owner_id=1, phone_num='6509864381', street_add='1099 Foster Square Ln #135',
         city='Foster City', state='California', zip=94404, website_url='https://www.yelp.com/biz/mumu-hot-pot-foster-city-2',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed20.jpg',
         description="Top 5 Best Hot Pot in Foster City. AYCE Hot Pot",
         price_rating=3)
     twenty = Business(
@@ -138,6 +138,15 @@ def seed_businesses():
     db.session.add(eight)
     db.session.add(nine)
     db.session.add(ten)
+    db.session.add(eleven)
+    db.session.add(twelve)
+    db.session.add(thirteen)
+    db.session.add(fourteen)
+    db.session.add(sixteen)
+    db.session.add(seventeen)
+    db.session.add(eighteen)
+    db.session.add(nineteen)
+    db.session.add(twenty)
     db.session.commit()
 
 
