@@ -23,7 +23,25 @@ def seed_reviews():
     ten = Review(
         user_id=9, business_id=3, rating=3, review='Good but not worth the hype', created_at=datetime.utcnow())
     eleven = Review(
-        user_id=8, business_id=4, rating=2, review='The workers really dont care', created_at=datetime.utcnow())
+        user_id=8, business_id=4, rating=2, review='What a rip-off!', created_at=datetime.utcnow())
+    twelve = Review(
+        user_id=10, business_id=12, rating=5, review='Crowded but a great deal on Thursdays!', created_at=datetime.utcnow())
+    thirteen = Review(
+        user_id=11, business_id=11, rating=4, review='Very lowkey shop but the chef has decades of experience', created_at=datetime.utcnow())
+    fourteen = Review(
+        user_id=12, business_id=14, rating=3, review="Really can't tell how I feel avout this olive oil flavor", created_at=datetime.utcnow())
+    fifteen = Review(
+        user_id=13, business_id=20, rating=3, review='Food is great but the wait for the food is ridiculous', created_at=datetime.utcnow())
+    sixteen = Review(
+        user_id=14, business_id=19, rating=4, review='Not all you can eat but super good soup bases', created_at=datetime.utcnow())
+    seventeen = Review(
+        user_id=15, business_id=18, rating=5, review='Nice date spot', created_at=datetime.utcnow())
+    eighteen = Review(
+        user_id=16, business_id=17, rating=4, review='Amazingly diverse menu, the combinations of the best foods!', created_at=datetime.utcnow())
+    nineteen = Review(
+        user_id=17, business_id=13, rating=5, review='Elevated dimsum with inventive concepts. The chocolate lava cake was the best', created_at=datetime.utcnow())
+    twenty = Review(
+        user_id=20, business_id=16, rating=4, review='Needed to book months ahead but this was a super interesting culinary experience', created_at=datetime.utcnow())
 
     db.session.add(one)
     db.session.add(two)
@@ -36,6 +54,15 @@ def seed_reviews():
     db.session.add(nine)
     db.session.add(ten)
     db.session.add(eleven)
+    db.session.add(twelve)
+    db.session.add(thirteen)
+    db.session.add(fourteen)
+    db.session.add(fifteen)
+    db.session.add(sixteen)
+    db.session.add(seventeen)
+    db.session.add(eighteen)
+    db.session.add(nineteen)
+    db.session.add(twenty)
     db.session.commit()
 
 

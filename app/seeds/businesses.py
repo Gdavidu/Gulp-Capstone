@@ -89,7 +89,7 @@ def seed_businesses():
     fifteen = Business(
         name="7Leaves", owner_id=14, phone_num='4086187210', street_add='1743 Berryessa Rd',
         city='San Jose', state='California', zip=95131, website_url='https://7leavescafesj.com/',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/7leaves.png',
         description="Coffee, Tea, and Goodness are the very essence of what we serve.",
         price_rating=1)
     sixteen = Business(
@@ -116,18 +116,13 @@ def seed_businesses():
         photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed19.jpg',
         description="AYCE hot pot",
         price_rating=3)
-    nineteen = Business(
-        name="Mumu Hot Pot", owner_id=1, phone_num='6509864381', street_add='1099 Foster Square Ln #135',
-        city='Foster City', state='California', zip=94404, website_url='https://www.yelp.com/biz/mumu-hot-pot-foster-city-2',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed20.jpg',
-        description="Top 5 Best Hot Pot in Foster City. AYCE Hot Pot",
-        price_rating=3)
     twenty = Business(
         name="Vivace Ristorante", owner_id=2, phone_num='6504070608', street_add='1910 Ralston Ave',
         city='Belmont', state='California', zip=94002, website_url='https://www.vivacerestaurant.com',
         photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
         description="Highly regarded as one of the best restaurants on the Peninsula, Vivace Ristorante is located in the charming city of Belmont.",
         price_rating=3)
+    
     db.session.add(one)
     db.session.add(two)
     db.session.add(three)
@@ -142,6 +137,7 @@ def seed_businesses():
     db.session.add(twelve)
     db.session.add(thirteen)
     db.session.add(fourteen)
+    db.session.add(fifteen)
     db.session.add(sixteen)
     db.session.add(seventeen)
     db.session.add(eighteen)
