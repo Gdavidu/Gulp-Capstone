@@ -101,7 +101,7 @@ def seed_businesses():
     seventeen = Business(
         name="Uncle John's Cafe", owner_id=15, phone_num='2136134567', street_add='834 S Grand Ave',
         city='Los Angeles', state='California', zip=90017, website_url='https://unclejohnsdtla.com',
-        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seed17.jpg',
+        photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Busi+seed+adds/seedjohn.webp',
         description="Chinese-American diner with a menu ranging from egg rolls & spicy pork chops to omelets & burgers.",
         price_rating=1)
     eighteen = Business(
@@ -122,7 +122,7 @@ def seed_businesses():
         photo_url='https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/seed10.jpg',
         description="Highly regarded as one of the best restaurants on the Peninsula, Vivace Ristorante is located in the charming city of Belmont.",
         price_rating=3)
-    
+
     db.session.add(one)
     db.session.add(two)
     db.session.add(three)
