@@ -1,6 +1,6 @@
 import "./BusinessCard.css";
 import { NavLink } from 'react-router-dom';
-// TEST AGAIN 
+// TEST AGAIN 3
 
 export default function BusinessCard({ business }) {
     return (
