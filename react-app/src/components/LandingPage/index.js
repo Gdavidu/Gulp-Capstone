@@ -2,13 +2,23 @@ import './LandingPage.css'
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { useEffect, useCallback} from "react";
+import { useEffect, useCallback } from "react";
 import { getBusisThunk } from '../../store/business';
 import RecentActivity from '../RecentActivity';
 import { getAllReviewsThunk } from '../../store/review';
 
 
 export default function LandingPage() {
+    // **Attempt at a display for rendering but def need to be on a higher level. This only takes over the landing
+    // page and somehow is preventing the landing page from loading
+    // const [isLoading, setIsLoading] = React.useState(true);
+    // const handleLoading = () => {
+    //     setIsLoading(false);
+    // }
+    // useEffect(()=>{
+    //     window.addEventListener("load",handleLoading);
+    //     return () => window.removeEventListener("load",handleLoading);
+    //     },[])
     const sessionUser = useSelector(state => state.session.user);
     const history = useHistory();
     const dispatch = useDispatch();
@@ -19,17 +29,17 @@ export default function LandingPage() {
     let [img, setImg] = useState('https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp.jpg')
     document.getElementById('logo').style.color = 'white'
     document.querySelector('.fa-yelp').style.color = 'white'
-    const carousel = useCallback(()=>{
-        let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp3new.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5new.webp','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/spreadnew.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg','https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/bbqreplace.jpeg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/italianfd.jpg','https://gulp-bucket.s3.us-west-1.amazonaws.com/chinesefd.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp7.webp','https://gulp-bucket.s3.us-west-1.amazonaws.com/jpfdfinal.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp.jpg']
+    const carousel = useCallback(() => {
+        let images = ['https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash3.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash4.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp3new.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash5new.webp', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/spreadnew.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/splash2.jpg', 'https://soundcloudaudiofiles.s3.us-west-1.amazonaws.com/bbqreplace.jpeg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/italianfd.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/chinesefd.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp7.webp', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/jpfdfinal.jpg', 'https://gulp-bucket.s3.us-west-1.amazonaws.com/Gulp+Images/sp.jpg']
         setImg(images[count])
-        setCount(count+1)
-        if(count+1 === images.length) setCount(0)
-    },[count])
+        setCount(count + 1)
+        if (count + 1 === images.length) setCount(0)
+    }, [count])
 
     useEffect(() => {
-        const interval = setInterval(()=>carousel(), 4500)
-        return ()=> clearInterval(interval)
-    }, [img,count,carousel])
+        const interval = setInterval(() => carousel(), 4500)
+        return () => clearInterval(interval)
+    }, [img, count, carousel])
     // // window.setInterval(replaceImg, 4000)
 
     useEffect(() => {
@@ -37,26 +47,6 @@ export default function LandingPage() {
         dispatch(getAllReviewsThunk())
         // dispatch(getAllReviewsThunk)
     }, [dispatch])
-
-
-
-
-
-    // let index = 0;
-    // const replaceImg = ()=>{
-    //     index > 1 ? index = 0 : index++
-    //     // if (document.readyState === "complete" || document.readyState === "loaded") {
-    //         // if (imgCarousel) clearInterval(imgCarousel)
-    //         let image = document.getElementById('main-image');
-    //         if (image){
-    //             console.log('hit')
-    //             image.src = images[index]
-    //             image.id = 'main-image'
-    //         }
-    // //    }
-    // }
-    //     if (imgCarousel) clearInterval(imgCarousel)
-    //     imgCarousel = setInterval(replaceImg, 5000)
 
     if (!reviews.length) return null
     const reviewsArr = []
@@ -72,7 +62,7 @@ export default function LandingPage() {
     const handleFindRes = (e) => {
         e.preventDefault();
         history.push('/businesses/recent')
-      };
+    };
 
 
 
@@ -80,15 +70,17 @@ export default function LandingPage() {
 
 
 
-        // window.addEventListener("pagehide", clearInterval(imgCarousel), console.log('cleared'))
+    // window.addEventListener("pagehide", clearInterval(imgCarousel), console.log('cleared'))
 
 
+    // **Attempt at a display for rendering
+    // !isLoading ?
     return (
         <>
             <div className='hungryboi'>Feeling Hungry?</div>
 
-            <button  className='findRestaurants'
-            onClick={handleFindRes}
+            <button className='findRestaurants'
+                onClick={handleFindRes}
             >Find Restaurants</button>
 
             <div className='flex-contain'>
@@ -110,4 +102,8 @@ export default function LandingPage() {
             </div>
         </>
     )
+    // ** Attempt at a display for rendering
+    // :(<>
+    // <div className='loading'>Loading, Render loads very slowly D:</div>
+    // </>)
 }
