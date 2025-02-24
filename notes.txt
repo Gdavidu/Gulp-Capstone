@@ -1,0 +1,5 @@
+To get this running on new env:
+- installed postgres
+- pipenv install in overarching directory
+- npm install inside react-app
+- currently not recognizing 'pipenv run flask run'
